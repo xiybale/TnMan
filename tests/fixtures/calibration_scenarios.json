@@ -1,0 +1,19 @@
+{
+  "scenarios": [
+    {
+      "scenario_id": "quick-smoke",
+      "description": "Small deterministic smoke check for the calibration command.",
+      "player_one": "hubert-hurkacz",
+      "player_two": "novak-djokovic",
+      "surface": "grass",
+      "best_of_sets": 3,
+      "iterations": 4,
+      "seed": 77,
+      "targets": {
+        "combined_first_serve_in_rate": { "minimum": 0.50, "maximum": 0.90 },
+        "average_rally_length": { "minimum": 4.0, "maximum": 10.0 }
+      }
+    }
+  ]
+}
+

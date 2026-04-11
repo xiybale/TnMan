@@ -1,0 +1,56 @@
+{
+  "scenarios": [
+    {
+      "scenario_id": "serve-bomb-grass",
+      "description": "Grass matchup that should skew toward shorter rallies and stronger serve pressure.",
+      "player_one": "hubert-hurkacz",
+      "player_two": "novak-djokovic",
+      "surface": "grass",
+      "best_of_sets": 3,
+      "iterations": 40,
+      "seed": 1200,
+      "targets": {
+        "average_rally_length": { "minimum": 5.7, "maximum": 8.5 },
+        "combined_ace_rate": { "minimum": 0.04, "maximum": 0.09 },
+        "combined_first_serve_in_rate": { "minimum": 0.66, "maximum": 0.77 },
+        "combined_double_fault_rate": { "minimum": 0.01, "maximum": 0.05 },
+        "player_one_hold_rate": { "minimum": 0.55, "maximum": 0.78 },
+        "player_two_hold_rate": { "minimum": 0.88, "maximum": 1.00 }
+      }
+    },
+    {
+      "scenario_id": "elite-baseline-clay",
+      "description": "Clay baseline matchup that should produce longer rallies and fewer free points.",
+      "player_one": "carlos-alcaraz",
+      "player_two": "casper-ruud",
+      "surface": "clay",
+      "best_of_sets": 3,
+      "iterations": 40,
+      "seed": 2200,
+      "targets": {
+        "average_rally_length": { "minimum": 7.0, "maximum": 10.5 },
+        "combined_ace_rate": { "minimum": 0.01, "maximum": 0.06 },
+        "combined_first_serve_in_rate": { "minimum": 0.58, "maximum": 0.74 },
+        "combined_hold_rate": { "minimum": 0.72, "maximum": 0.90 },
+        "rally_band_11_plus": { "minimum": 0.08, "maximum": 0.30 }
+      }
+    },
+    {
+      "scenario_id": "lefty-topspin-clay",
+      "description": "Left-handed heavy-topspin clay matchup that should pressure a one-handed backhand profile.",
+      "player_one": "rafael-nadal",
+      "player_two": "stefanos-tsitsipas",
+      "surface": "clay",
+      "best_of_sets": 3,
+      "iterations": 30,
+      "seed": 3300,
+      "targets": {
+        "player_one_win_rate": { "minimum": 0.80, "maximum": 1.00 },
+        "player_two_hold_rate": { "minimum": 0.20, "maximum": 0.75 },
+        "average_rally_length": { "minimum": 6.0, "maximum": 9.5 },
+        "combined_ace_rate": { "minimum": 0.01, "maximum": 0.08 },
+        "rally_band_7_10": { "minimum": 0.15, "maximum": 0.42 }
+      }
+    }
+  ]
+}
