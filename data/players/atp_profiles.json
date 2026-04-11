@@ -7,10 +7,10 @@
     "handedness": "right",
     "backhand_hands": 2,
     "skills": {
-      "serve_power": 84,
-      "serve_accuracy": 81,
-      "second_serve_reliability": 82,
-      "return_quality": 91,
+      "serve_power": 69,
+      "serve_accuracy": 75,
+      "second_serve_reliability": 83,
+      "return_quality": 87,
       "forehand_quality": 95,
       "backhand_quality": 89,
       "movement": 96,
@@ -25,7 +25,7 @@
       "baseline_aggression": 87,
       "preferred_serve_direction": "wide",
       "short_ball_attack": 91,
-      "net_frequency": 44
+      "net_frequency": 50
     },
     "spin": {
       "serve_spin": 70,
@@ -44,20 +44,77 @@
       "grass": 86
     },
     "derived_stats": {
-      "first_serve_in": 0.64,
-      "first_serve_points_won": 0.74,
+      "first_serve_in": 0.6475,
+      "first_serve_points_won": 0.736,
       "second_serve_points_won": 0.56,
-      "ace_rate": 0.09,
+      "ace_rate": 0.078,
       "double_fault_rate": 0.03,
       "return_points_won": 0.41,
-      "break_rate": 0.29,
-      "hold_rate": 0.86,
+      "break_rate": 0.2855,
+      "hold_rate": 0.8667,
       "hard_win_rate": 0.76,
       "clay_win_rate": 0.84,
       "grass_win_rate": 0.69,
       "source_notes": [
-        "Manually curated starter profile tuned for explosive movement, all-court play, and clay upside."
+        "Manually curated starter profile tuned for explosive movement, all-court play, and clay upside.",
+        "Blended with current Tennis Abstract Match Charting Project data.",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/CarlosAlcaraz.html"
       ]
+    },
+    "curated_baseline": {
+      "skills": {
+        "serve_power": 84,
+        "serve_accuracy": 81,
+        "second_serve_reliability": 82,
+        "return_quality": 91,
+        "forehand_quality": 95,
+        "backhand_quality": 89,
+        "movement": 96,
+        "anticipation": 94,
+        "rally_tolerance": 92,
+        "net_play": 89,
+        "composure": 86,
+        "stamina": 93,
+        "pressure_handling": 86
+      },
+      "tactics": {
+        "baseline_aggression": 87,
+        "preferred_serve_direction": "wide",
+        "short_ball_attack": 91,
+        "net_frequency": 44
+      },
+      "spin": {
+        "serve_spin": 70,
+        "forehand_spin": 78,
+        "backhand_spin": 70,
+        "slice_frequency": 52
+      },
+      "physical": {
+        "durability": 91,
+        "recovery": 92,
+        "peak_condition": 93
+      },
+      "surface_profile": {
+        "hard": 90,
+        "clay": 97,
+        "grass": 86
+      },
+      "derived_stats": {
+        "first_serve_in": 0.64,
+        "first_serve_points_won": 0.74,
+        "second_serve_points_won": 0.56,
+        "ace_rate": 0.09,
+        "double_fault_rate": 0.03,
+        "return_points_won": 0.41,
+        "break_rate": 0.29,
+        "hold_rate": 0.86,
+        "hard_win_rate": 0.76,
+        "clay_win_rate": 0.84,
+        "grass_win_rate": 0.69,
+        "source_notes": [
+          "Manually curated starter profile tuned for explosive movement, all-court play, and clay upside."
+        ]
+      }
     }
   },
   {
@@ -68,25 +125,25 @@
     "handedness": "right",
     "backhand_hands": 2,
     "skills": {
-      "serve_power": 89,
-      "serve_accuracy": 84,
-      "second_serve_reliability": 80,
-      "return_quality": 88,
+      "serve_power": 81,
+      "serve_accuracy": 70,
+      "second_serve_reliability": 82,
+      "return_quality": 81,
       "forehand_quality": 94,
       "backhand_quality": 91,
       "movement": 86,
       "anticipation": 87,
       "rally_tolerance": 88,
-      "net_play": 78,
+      "net_play": 84,
       "composure": 87,
       "stamina": 88,
       "pressure_handling": 87
     },
     "tactics": {
       "baseline_aggression": 82,
-      "preferred_serve_direction": "t",
+      "preferred_serve_direction": "wide",
       "short_ball_attack": 88,
-      "net_frequency": 27
+      "net_frequency": 32
     },
     "spin": {
       "serve_spin": 60,
@@ -105,20 +162,77 @@
       "grass": 87
     },
     "derived_stats": {
-      "first_serve_in": 0.61,
-      "first_serve_points_won": 0.78,
+      "first_serve_in": 0.6094,
+      "first_serve_points_won": 0.768,
       "second_serve_points_won": 0.56,
-      "ace_rate": 0.13,
+      "ace_rate": 0.114,
       "double_fault_rate": 0.03,
-      "return_points_won": 0.39,
-      "break_rate": 0.26,
-      "hold_rate": 0.89,
+      "return_points_won": 0.398,
+      "break_rate": 0.2601,
+      "hold_rate": 0.8842,
       "hard_win_rate": 0.84,
       "clay_win_rate": 0.68,
       "grass_win_rate": 0.73,
       "source_notes": [
-        "Manually curated starter profile tuned for hard-court aggression and serve-led offense."
+        "Manually curated starter profile tuned for hard-court aggression and serve-led offense.",
+        "Blended with current Tennis Abstract Match Charting Project data.",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JannikSinner.html"
       ]
+    },
+    "curated_baseline": {
+      "skills": {
+        "serve_power": 89,
+        "serve_accuracy": 84,
+        "second_serve_reliability": 80,
+        "return_quality": 88,
+        "forehand_quality": 94,
+        "backhand_quality": 91,
+        "movement": 86,
+        "anticipation": 87,
+        "rally_tolerance": 88,
+        "net_play": 78,
+        "composure": 87,
+        "stamina": 88,
+        "pressure_handling": 87
+      },
+      "tactics": {
+        "baseline_aggression": 82,
+        "preferred_serve_direction": "t",
+        "short_ball_attack": 88,
+        "net_frequency": 27
+      },
+      "spin": {
+        "serve_spin": 60,
+        "forehand_spin": 66,
+        "backhand_spin": 62,
+        "slice_frequency": 38
+      },
+      "physical": {
+        "durability": 88,
+        "recovery": 87,
+        "peak_condition": 89
+      },
+      "surface_profile": {
+        "hard": 97,
+        "clay": 83,
+        "grass": 87
+      },
+      "derived_stats": {
+        "first_serve_in": 0.61,
+        "first_serve_points_won": 0.78,
+        "second_serve_points_won": 0.56,
+        "ace_rate": 0.13,
+        "double_fault_rate": 0.03,
+        "return_points_won": 0.39,
+        "break_rate": 0.26,
+        "hold_rate": 0.89,
+        "hard_win_rate": 0.84,
+        "clay_win_rate": 0.68,
+        "grass_win_rate": 0.73,
+        "source_notes": [
+          "Manually curated starter profile tuned for hard-court aggression and serve-led offense."
+        ]
+      }
     }
   },
   {
@@ -184,7 +298,7 @@
         "Blended with 2024 ATP tour-level match stats from 90 match(es).",
         "Current ATP rank at snapshot: 3.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlexanderZverev.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlexanderZverev.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -197,25 +311,25 @@
     "handedness": "right",
     "backhand_hands": 2,
     "skills": {
-      "serve_power": 80,
-      "serve_accuracy": 91,
-      "second_serve_reliability": 92,
-      "return_quality": 97,
+      "serve_power": 68,
+      "serve_accuracy": 82,
+      "second_serve_reliability": 90,
+      "return_quality": 92,
       "forehand_quality": 90,
       "backhand_quality": 95,
       "movement": 92,
       "anticipation": 97,
       "rally_tolerance": 95,
-      "net_play": 84,
+      "net_play": 79,
       "composure": 99,
       "stamina": 95,
       "pressure_handling": 99
     },
     "tactics": {
       "baseline_aggression": 72,
-      "preferred_serve_direction": "body",
+      "preferred_serve_direction": "wide",
       "short_ball_attack": 74,
-      "net_frequency": 32
+      "net_frequency": 40
     },
     "spin": {
       "serve_spin": 68,
@@ -234,20 +348,77 @@
       "grass": 90
     },
     "derived_stats": {
-      "first_serve_in": 0.65,
-      "first_serve_points_won": 0.75,
-      "second_serve_points_won": 0.58,
-      "ace_rate": 0.1,
+      "first_serve_in": 0.6508,
+      "first_serve_points_won": 0.742,
+      "second_serve_points_won": 0.564,
+      "ace_rate": 0.088,
       "double_fault_rate": 0.02,
-      "return_points_won": 0.42,
-      "break_rate": 0.3,
-      "hold_rate": 0.88,
+      "return_points_won": 0.412,
+      "break_rate": 0.2898,
+      "hold_rate": 0.8749,
       "hard_win_rate": 0.82,
       "clay_win_rate": 0.75,
       "grass_win_rate": 0.79,
       "source_notes": [
-        "Manually curated starter profile tuned for strong return pressure and elite composure."
+        "Manually curated starter profile tuned for strong return pressure and elite composure.",
+        "Blended with current Tennis Abstract Match Charting Project data.",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/NovakDjokovic.html"
       ]
+    },
+    "curated_baseline": {
+      "skills": {
+        "serve_power": 80,
+        "serve_accuracy": 91,
+        "second_serve_reliability": 92,
+        "return_quality": 97,
+        "forehand_quality": 90,
+        "backhand_quality": 95,
+        "movement": 92,
+        "anticipation": 97,
+        "rally_tolerance": 95,
+        "net_play": 84,
+        "composure": 99,
+        "stamina": 95,
+        "pressure_handling": 99
+      },
+      "tactics": {
+        "baseline_aggression": 72,
+        "preferred_serve_direction": "body",
+        "short_ball_attack": 74,
+        "net_frequency": 32
+      },
+      "spin": {
+        "serve_spin": 68,
+        "forehand_spin": 72,
+        "backhand_spin": 80,
+        "slice_frequency": 55
+      },
+      "physical": {
+        "durability": 95,
+        "recovery": 94,
+        "peak_condition": 95
+      },
+      "surface_profile": {
+        "hard": 95,
+        "clay": 89,
+        "grass": 90
+      },
+      "derived_stats": {
+        "first_serve_in": 0.65,
+        "first_serve_points_won": 0.75,
+        "second_serve_points_won": 0.58,
+        "ace_rate": 0.1,
+        "double_fault_rate": 0.02,
+        "return_points_won": 0.42,
+        "break_rate": 0.3,
+        "hold_rate": 0.88,
+        "hard_win_rate": 0.82,
+        "clay_win_rate": 0.75,
+        "grass_win_rate": 0.79,
+        "source_notes": [
+          "Manually curated starter profile tuned for strong return pressure and elite composure."
+        ]
+      }
     }
   },
   {
@@ -313,7 +484,7 @@
         "Blended with 2024 ATP tour-level match stats from 69 match(es).",
         "Current ATP rank at snapshot: 5.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/LorenzoMusetti.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/LorenzoMusetti.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -381,7 +552,7 @@
         "Blended with 2024 ATP tour-level match stats from 70 match(es).",
         "Current ATP rank at snapshot: 6.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlexDeMinaur.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlexDeMinaur.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -449,7 +620,7 @@
         "Blended with 2024 ATP tour-level match stats from 58 match(es).",
         "Current ATP rank at snapshot: 7.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/FelixAugerAliassime.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/FelixAugerAliassime.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -517,7 +688,7 @@
         "Blended with 2024 ATP tour-level match stats from 76 match(es).",
         "Current ATP rank at snapshot: 8.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/TaylorFritz.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/TaylorFritz.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -585,7 +756,7 @@
         "Blended with 2024 ATP tour-level match stats from 68 match(es).",
         "Current ATP rank at snapshot: 9.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/BenShelton.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/BenShelton.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -598,25 +769,25 @@
     "handedness": "right",
     "backhand_hands": 2,
     "skills": {
-      "serve_power": 83,
-      "serve_accuracy": 87,
-      "second_serve_reliability": 86,
-      "return_quality": 90,
+      "serve_power": 75,
+      "serve_accuracy": 76,
+      "second_serve_reliability": 83,
+      "return_quality": 81,
       "forehand_quality": 84,
       "backhand_quality": 90,
       "movement": 83,
       "anticipation": 89,
       "rally_tolerance": 89,
-      "net_play": 71,
+      "net_play": 67,
       "composure": 89,
       "stamina": 90,
       "pressure_handling": 89
     },
     "tactics": {
       "baseline_aggression": 58,
-      "preferred_serve_direction": "body",
+      "preferred_serve_direction": "wide",
       "short_ball_attack": 63,
-      "net_frequency": 18
+      "net_frequency": 24
     },
     "spin": {
       "serve_spin": 62,
@@ -635,20 +806,77 @@
       "grass": 82
     },
     "derived_stats": {
-      "first_serve_in": 0.63,
-      "first_serve_points_won": 0.76,
-      "second_serve_points_won": 0.56,
-      "ace_rate": 0.11,
+      "first_serve_in": 0.6295,
+      "first_serve_points_won": 0.756,
+      "second_serve_points_won": 0.54,
+      "ace_rate": 0.106,
       "double_fault_rate": 0.03,
-      "return_points_won": 0.4,
-      "break_rate": 0.25,
-      "hold_rate": 0.88,
+      "return_points_won": 0.396,
+      "break_rate": 0.256,
+      "hold_rate": 0.8695,
       "hard_win_rate": 0.8,
       "clay_win_rate": 0.58,
       "grass_win_rate": 0.66,
       "source_notes": [
-        "Manually curated starter profile tuned for defensive depth and hard-court consistency."
+        "Manually curated starter profile tuned for defensive depth and hard-court consistency.",
+        "Blended with current Tennis Abstract Match Charting Project data.",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/DaniilMedvedev.html"
       ]
+    },
+    "curated_baseline": {
+      "skills": {
+        "serve_power": 83,
+        "serve_accuracy": 87,
+        "second_serve_reliability": 86,
+        "return_quality": 90,
+        "forehand_quality": 84,
+        "backhand_quality": 90,
+        "movement": 83,
+        "anticipation": 89,
+        "rally_tolerance": 89,
+        "net_play": 71,
+        "composure": 89,
+        "stamina": 90,
+        "pressure_handling": 89
+      },
+      "tactics": {
+        "baseline_aggression": 58,
+        "preferred_serve_direction": "body",
+        "short_ball_attack": 63,
+        "net_frequency": 18
+      },
+      "spin": {
+        "serve_spin": 62,
+        "forehand_spin": 54,
+        "backhand_spin": 58,
+        "slice_frequency": 44
+      },
+      "physical": {
+        "durability": 90,
+        "recovery": 88,
+        "peak_condition": 89
+      },
+      "surface_profile": {
+        "hard": 92,
+        "clay": 76,
+        "grass": 82
+      },
+      "derived_stats": {
+        "first_serve_in": 0.63,
+        "first_serve_points_won": 0.76,
+        "second_serve_points_won": 0.56,
+        "ace_rate": 0.11,
+        "double_fault_rate": 0.03,
+        "return_points_won": 0.4,
+        "break_rate": 0.25,
+        "hold_rate": 0.88,
+        "hard_win_rate": 0.8,
+        "clay_win_rate": 0.58,
+        "grass_win_rate": 0.66,
+        "source_notes": [
+          "Manually curated starter profile tuned for defensive depth and hard-court consistency."
+        ]
+      }
     }
   },
   {
@@ -714,7 +942,7 @@
         "Blended with 2024 ATP tour-level match stats from 50 match(es).",
         "Current ATP rank at snapshot: 11.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlexanderBublik.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlexanderBublik.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -727,16 +955,16 @@
     "handedness": "right",
     "backhand_hands": 2,
     "skills": {
-      "serve_power": 75,
-      "serve_accuracy": 83,
-      "second_serve_reliability": 85,
-      "return_quality": 82,
+      "serve_power": 61,
+      "serve_accuracy": 77,
+      "second_serve_reliability": 83,
+      "return_quality": 69,
       "forehand_quality": 88,
       "backhand_quality": 81,
       "movement": 84,
       "anticipation": 83,
       "rally_tolerance": 90,
-      "net_play": 72,
+      "net_play": 75,
       "composure": 85,
       "stamina": 91,
       "pressure_handling": 85
@@ -745,7 +973,7 @@
       "baseline_aggression": 65,
       "preferred_serve_direction": "wide",
       "short_ball_attack": 67,
-      "net_frequency": 25
+      "net_frequency": 22
     },
     "spin": {
       "serve_spin": 73,
@@ -764,20 +992,77 @@
       "grass": 69
     },
     "derived_stats": {
-      "first_serve_in": 0.65,
-      "first_serve_points_won": 0.72,
-      "second_serve_points_won": 0.55,
+      "first_serve_in": 0.6499,
+      "first_serve_points_won": 0.724,
+      "second_serve_points_won": 0.546,
       "ace_rate": 0.07,
       "double_fault_rate": 0.03,
-      "return_points_won": 0.38,
-      "break_rate": 0.24,
-      "hold_rate": 0.82,
+      "return_points_won": 0.3762,
+      "break_rate": 0.2169,
+      "hold_rate": 0.8484,
       "hard_win_rate": 0.58,
       "clay_win_rate": 0.8,
       "grass_win_rate": 0.45,
       "source_notes": [
-        "Manually curated starter profile tuned for clay durability and long-rally comfort."
+        "Manually curated starter profile tuned for clay durability and long-rally comfort.",
+        "Blended with current Tennis Abstract Match Charting Project data.",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/CasperRuud.html"
       ]
+    },
+    "curated_baseline": {
+      "skills": {
+        "serve_power": 75,
+        "serve_accuracy": 83,
+        "second_serve_reliability": 85,
+        "return_quality": 82,
+        "forehand_quality": 88,
+        "backhand_quality": 81,
+        "movement": 84,
+        "anticipation": 83,
+        "rally_tolerance": 90,
+        "net_play": 72,
+        "composure": 85,
+        "stamina": 91,
+        "pressure_handling": 85
+      },
+      "tactics": {
+        "baseline_aggression": 65,
+        "preferred_serve_direction": "wide",
+        "short_ball_attack": 67,
+        "net_frequency": 25
+      },
+      "spin": {
+        "serve_spin": 73,
+        "forehand_spin": 88,
+        "backhand_spin": 74,
+        "slice_frequency": 42
+      },
+      "physical": {
+        "durability": 90,
+        "recovery": 88,
+        "peak_condition": 90
+      },
+      "surface_profile": {
+        "hard": 80,
+        "clay": 96,
+        "grass": 69
+      },
+      "derived_stats": {
+        "first_serve_in": 0.65,
+        "first_serve_points_won": 0.72,
+        "second_serve_points_won": 0.55,
+        "ace_rate": 0.07,
+        "double_fault_rate": 0.03,
+        "return_points_won": 0.38,
+        "break_rate": 0.24,
+        "hold_rate": 0.82,
+        "hard_win_rate": 0.58,
+        "clay_win_rate": 0.8,
+        "grass_win_rate": 0.45,
+        "source_notes": [
+          "Manually curated starter profile tuned for clay durability and long-rally comfort."
+        ]
+      }
     }
   },
   {
@@ -843,7 +1128,7 @@
         "Blended with 2024 ATP tour-level match stats from 62 match(es).",
         "Current ATP rank at snapshot: 13.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/FlavioCobolli.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/FlavioCobolli.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -911,7 +1196,7 @@
         "Blended with 2024 ATP tour-level match stats from 49 match(es).",
         "Current ATP rank at snapshot: 14.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JiriLehecka.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JiriLehecka.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -979,7 +1264,7 @@
         "Blended with 2024 ATP tour-level match stats from 59 match(es).",
         "Current ATP rank at snapshot: 15.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/KarenKhachanov.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/KarenKhachanov.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1047,7 +1332,7 @@
         "Blended with 2024 ATP tour-level match stats from 70 match(es).",
         "Current ATP rank at snapshot: 16.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AndreyRublev.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AndreyRublev.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1115,7 +1400,7 @@
         "Blended with 2024 ATP tour-level match stats from 41 match(es).",
         "Current ATP rank at snapshot: 17.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlejandroDavidovichFokina.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlejandroDavidovichFokina.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1183,7 +1468,7 @@
         "Blended with 2024 ATP tour-level match stats from 59 match(es).",
         "Current ATP rank at snapshot: 18.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/FrancesTiafoe.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/FrancesTiafoe.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1251,7 +1536,7 @@
         "Blended with 2024 ATP tour-level match stats from 51 match(es).",
         "Current ATP rank at snapshot: 19.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/LucianoDarderi.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/LucianoDarderi.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1319,7 +1604,7 @@
         "Blended with 2024 ATP tour-level match stats from 66 match(es).",
         "Current ATP rank at snapshot: 20.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/FranciscoCerundolo.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/FranciscoCerundolo.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1387,7 +1672,7 @@
         "Blended with 2024 ATP tour-level match stats from 64 match(es).",
         "Current ATP rank at snapshot: 21.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/TommyPaul.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/TommyPaul.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1455,7 +1740,7 @@
         "Blended with 2024 ATP tour-level match stats from 10 match(es).",
         "Current ATP rank at snapshot: 22.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/LearnerTien.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/LearnerTien.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1523,7 +1808,7 @@
         "Blended with 2024 ATP tour-level match stats from 5 match(es).",
         "Current ATP rank at snapshot: 23.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ValentinVacherot.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ValentinVacherot.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1591,7 +1876,7 @@
         "Blended with 2024 ATP tour-level match stats from 40 match(es).",
         "Current ATP rank at snapshot: 24.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/CameronNorrie.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/CameronNorrie.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1659,7 +1944,7 @@
         "Blended with 2024 ATP tour-level match stats from 61 match(es).",
         "Current ATP rank at snapshot: 25.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JackDraper.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JackDraper.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1727,7 +2012,7 @@
         "Blended with 2024 ATP tour-level match stats from 45 match(es).",
         "Current ATP rank at snapshot: 26.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JakubMensik.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JakubMensik.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1795,7 +2080,7 @@
         "Blended with 2024 ATP tour-level match stats from 44 match(es).",
         "Current ATP rank at snapshot: 27.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ArthurRinderknech.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ArthurRinderknech.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1863,7 +2148,7 @@
         "Blended with 2024 ATP tour-level match stats from 66 match(es).",
         "Current ATP rank at snapshot: 28.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ArthurFils.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ArthurFils.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1931,7 +2216,7 @@
         "Blended with 2024 ATP tour-level match stats from 69 match(es).",
         "Current ATP rank at snapshot: 29.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/HolgerRune.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/HolgerRune.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -1999,7 +2284,7 @@
         "Blended with 2024 ATP tour-level match stats from 63 match(es).",
         "Current ATP rank at snapshot: 30.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/TallonGriekspoor.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/TallonGriekspoor.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2049,14 +2334,14 @@
       "grass": 70
     },
     "derived_stats": {
-      "first_serve_in": 0.6547,
+      "first_serve_in": 0.6546,
       "first_serve_points_won": 0.7194,
-      "second_serve_points_won": 0.4968,
+      "second_serve_points_won": 0.4975,
       "ace_rate": 0.0788,
       "double_fault_rate": 0.021,
       "return_points_won": 0.3677,
       "break_rate": 0.2011,
-      "hold_rate": 0.817,
+      "hold_rate": 0.8174,
       "hard_win_rate": 0.4615,
       "clay_win_rate": 0.6,
       "grass_win_rate": 0.25,
@@ -2067,7 +2352,7 @@
         "Blended with 2024 ATP tour-level match stats from 60 match(es).",
         "Current ATP rank at snapshot: 31.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/TomasMartinEtcheverry.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/TomasMartinEtcheverry.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2135,7 +2420,7 @@
         "Blended with 2024 ATP tour-level match stats from 32 match(es).",
         "Current ATP rank at snapshot: 32.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/CorentinMoutet.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/CorentinMoutet.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2203,7 +2488,7 @@
         "Blended with 2024 ATP tour-level match stats from 51 match(es).",
         "Current ATP rank at snapshot: 33.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/BrandonNakashima.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/BrandonNakashima.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2271,7 +2556,7 @@
         "Blended with 2024 ATP tour-level match stats from 64 match(es).",
         "Current ATP rank at snapshot: 34.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/UgoHumbert.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/UgoHumbert.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2339,7 +2624,7 @@
         "Blended with 2024 ATP tour-level match stats from 64 match(es).",
         "Current ATP rank at snapshot: 35.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlexMichelsen.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlexMichelsen.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2407,7 +2692,7 @@
         "Blended with 2024 ATP tour-level match stats from 16 match(es).",
         "Current ATP rank at snapshot: 36.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/GabrielDiallo.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/GabrielDiallo.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2475,7 +2760,7 @@
         "Blended with 2024 ATP tour-level match stats from 37 match(es).",
         "Current ATP rank at snapshot: 37.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JaumeMunar.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JaumeMunar.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2543,7 +2828,7 @@
         "Blended with 2024 ATP tour-level match stats from 49 match(es).",
         "Current ATP rank at snapshot: 38.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/DenisShapovalov.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/DenisShapovalov.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2611,7 +2896,7 @@
         "Blended with 2024 ATP tour-level match stats from 60 match(es).",
         "Current ATP rank at snapshot: 39.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlejandroTabilo.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlejandroTabilo.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2679,7 +2964,7 @@
         "Blended with 2024 ATP tour-level match stats from 19 match(es).",
         "Current ATP rank at snapshot: 40.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JoaoFonseca.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JoaoFonseca.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2747,7 +3032,7 @@
         "Generated from ranking-based priors only.",
         "Current ATP rank at snapshot: 41.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JensonBrooksby.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JensonBrooksby.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2815,7 +3100,7 @@
         "Blended with 2024 ATP tour-level match stats from 51 match(es).",
         "Current ATP rank at snapshot: 42.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/SebastianKorda.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/SebastianKorda.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2883,7 +3168,7 @@
         "Blended with 2024 ATP tour-level match stats from 47 match(es).",
         "Current ATP rank at snapshot: 43.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AdrianMannarino.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AdrianMannarino.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -2912,9 +3197,9 @@
     },
     "tactics": {
       "baseline_aggression": 76,
-      "preferred_serve_direction": "t",
+      "preferred_serve_direction": "wide",
       "short_ball_attack": 76,
-      "net_frequency": 67
+      "net_frequency": 68
     },
     "spin": {
       "serve_spin": 67,
@@ -2934,13 +3219,13 @@
     },
     "derived_stats": {
       "first_serve_in": 0.5778,
-      "first_serve_points_won": 0.7257,
-      "second_serve_points_won": 0.438,
-      "ace_rate": 0.0914,
+      "first_serve_points_won": 0.7256,
+      "second_serve_points_won": 0.4381,
+      "ace_rate": 0.0913,
       "double_fault_rate": 0.0464,
       "return_points_won": 0.3544,
       "break_rate": 0.1777,
-      "hold_rate": 0.7445,
+      "hold_rate": 0.7444,
       "hard_win_rate": 0.3568,
       "clay_win_rate": 0.5281,
       "grass_win_rate": 0.5355,
@@ -2951,7 +3236,7 @@
         "Blended with 2024 ATP tour-level match stats from 10 match(es).",
         "Current ATP rank at snapshot: 44.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/TerenceAtmane.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/TerenceAtmane.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3019,7 +3304,7 @@
         "Blended with 2024 ATP tour-level match stats from 50 match(es).",
         "Current ATP rank at snapshot: 45.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlexeiPopyrin.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlexeiPopyrin.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3087,7 +3372,7 @@
         "Blended with 2024 ATP tour-level match stats from 35 match(es).",
         "Current ATP rank at snapshot: 46.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ZizouBergs.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ZizouBergs.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3155,7 +3440,7 @@
         "Blended with 2024 ATP tour-level match stats from 52 match(es).",
         "Current ATP rank at snapshot: 47.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/FabianMarozsan.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/FabianMarozsan.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3223,7 +3508,7 @@
         "Blended with 2024 ATP tour-level match stats from 49 match(es).",
         "Current ATP rank at snapshot: 48.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/NunoBorges.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/NunoBorges.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3236,16 +3521,16 @@
     "handedness": "right",
     "backhand_hands": 1,
     "skills": {
-      "serve_power": 86,
-      "serve_accuracy": 80,
-      "second_serve_reliability": 76,
-      "return_quality": 75,
+      "serve_power": 76,
+      "serve_accuracy": 70,
+      "second_serve_reliability": 74,
+      "return_quality": 52,
       "forehand_quality": 90,
       "backhand_quality": 78,
       "movement": 84,
       "anticipation": 81,
       "rally_tolerance": 81,
-      "net_play": 86,
+      "net_play": 82,
       "composure": 81,
       "stamina": 84,
       "pressure_handling": 81
@@ -3254,7 +3539,7 @@
       "baseline_aggression": 79,
       "preferred_serve_direction": "wide",
       "short_ball_attack": 80,
-      "net_frequency": 39
+      "net_frequency": 42
     },
     "spin": {
       "serve_spin": 65,
@@ -3273,20 +3558,77 @@
       "grass": 79
     },
     "derived_stats": {
-      "first_serve_in": 0.62,
-      "first_serve_points_won": 0.77,
-      "second_serve_points_won": 0.51,
-      "ace_rate": 0.11,
+      "first_serve_in": 0.6221,
+      "first_serve_points_won": 0.762,
+      "second_serve_points_won": 0.514,
+      "ace_rate": 0.098,
       "double_fault_rate": 0.04,
-      "return_points_won": 0.35,
-      "break_rate": 0.18,
-      "hold_rate": 0.86,
+      "return_points_won": 0.346,
+      "break_rate": 0.1638,
+      "hold_rate": 0.8584,
       "hard_win_rate": 0.67,
       "clay_win_rate": 0.66,
       "grass_win_rate": 0.62,
       "source_notes": [
-        "Manually curated one-handed backhand sample tuned for variety, attack, and spin-sensitive backhand defense."
+        "Manually curated one-handed backhand sample tuned for variety, attack, and spin-sensitive backhand defense.",
+        "Blended with current Tennis Abstract Match Charting Project data.",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/StefanosTsitsipas.html"
       ]
+    },
+    "curated_baseline": {
+      "skills": {
+        "serve_power": 86,
+        "serve_accuracy": 80,
+        "second_serve_reliability": 76,
+        "return_quality": 75,
+        "forehand_quality": 90,
+        "backhand_quality": 78,
+        "movement": 84,
+        "anticipation": 81,
+        "rally_tolerance": 81,
+        "net_play": 86,
+        "composure": 81,
+        "stamina": 84,
+        "pressure_handling": 81
+      },
+      "tactics": {
+        "baseline_aggression": 79,
+        "preferred_serve_direction": "wide",
+        "short_ball_attack": 80,
+        "net_frequency": 39
+      },
+      "spin": {
+        "serve_spin": 65,
+        "forehand_spin": 74,
+        "backhand_spin": 66,
+        "slice_frequency": 82
+      },
+      "physical": {
+        "durability": 84,
+        "recovery": 82,
+        "peak_condition": 84
+      },
+      "surface_profile": {
+        "hard": 83,
+        "clay": 82,
+        "grass": 79
+      },
+      "derived_stats": {
+        "first_serve_in": 0.62,
+        "first_serve_points_won": 0.77,
+        "second_serve_points_won": 0.51,
+        "ace_rate": 0.11,
+        "double_fault_rate": 0.04,
+        "return_points_won": 0.35,
+        "break_rate": 0.18,
+        "hold_rate": 0.86,
+        "hard_win_rate": 0.67,
+        "clay_win_rate": 0.66,
+        "grass_win_rate": 0.62,
+        "source_notes": [
+          "Manually curated one-handed backhand sample tuned for variety, attack, and spin-sensitive backhand defense."
+        ]
+      }
     }
   },
   {
@@ -3352,7 +3694,7 @@
         "Blended with 2024 ATP tour-level match stats from 59 match(es).",
         "Current ATP rank at snapshot: 50.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/SebastianBaez.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/SebastianBaez.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3420,7 +3762,7 @@
         "Blended with 2024 ATP tour-level match stats from 30 match(es).",
         "Current ATP rank at snapshot: 51.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/MartonFucsovics.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/MartonFucsovics.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3488,7 +3830,7 @@
         "Blended with 2024 ATP tour-level match stats from 36 match(es).",
         "Current ATP rank at snapshot: 52.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/DanielAltmaier.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/DanielAltmaier.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3556,7 +3898,7 @@
         "Blended with 2024 ATP tour-level match stats from 2 match(es).",
         "Current ATP rank at snapshot: 53.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/KamilMajchrzak.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/KamilMajchrzak.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3624,7 +3966,7 @@
         "Blended with 2024 ATP tour-level match stats from 15 match(es).",
         "Current ATP rank at snapshot: 54.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/MarinCilic.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/MarinCilic.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3692,7 +4034,7 @@
         "Blended with 2024 ATP tour-level match stats from 57 match(es).",
         "Current ATP rank at snapshot: 55.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/TomasMachac.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/TomasMachac.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3760,7 +4102,7 @@
         "Blended with 2024 ATP tour-level match stats from 4 match(es).",
         "Current ATP rank at snapshot: 56.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/EthanQuinn.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/EthanQuinn.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3828,7 +4170,7 @@
         "Blended with 2024 ATP tour-level match stats from 29 match(es).",
         "Current ATP rank at snapshot: 57.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/GiovanniMpetshiPerricard.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/GiovanniMpetshiPerricard.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3896,7 +4238,7 @@
         "Blended with 2024 ATP tour-level match stats from 55 match(es).",
         "Current ATP rank at snapshot: 58.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/MiomirKecmanovic.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/MiomirKecmanovic.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -3964,7 +4306,7 @@
         "Blended with 2024 ATP tour-level match stats from 3 match(es).",
         "Current ATP rank at snapshot: 59.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/IgnacioBuse.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/IgnacioBuse.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4032,7 +4374,7 @@
         "Blended with 2024 ATP tour-level match stats from 42 match(es).",
         "Current ATP rank at snapshot: 60.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/MarianoNavone.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/MarianoNavone.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4100,7 +4442,7 @@
         "Blended with 2024 ATP tour-level match stats from 41 match(es).",
         "Current ATP rank at snapshot: 61.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/YannickHanfmann.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/YannickHanfmann.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4168,7 +4510,7 @@
         "Blended with 2024 ATP tour-level match stats from 44 match(es).",
         "Current ATP rank at snapshot: 62.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/BoticVanDeZandschulp.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/BoticVanDeZandschulp.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4236,7 +4578,7 @@
         "Blended with 2024 ATP tour-level match stats from 50 match(es).",
         "Current ATP rank at snapshot: 63.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/LorenzoSonego.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/LorenzoSonego.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4304,7 +4646,7 @@
         "Blended with 2024 ATP tour-level match stats from 15 match(es).",
         "Current ATP rank at snapshot: 64.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ReillyOpelka.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ReillyOpelka.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4372,7 +4714,7 @@
         "Blended with 2024 ATP tour-level match stats from 3 match(es).",
         "Current ATP rank at snapshot: 65.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/RaphaelCollignon.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/RaphaelCollignon.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4440,7 +4782,7 @@
         "Blended with 2024 ATP tour-level match stats from 53 match(es).",
         "Current ATP rank at snapshot: 66.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/MarcosGiron.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/MarcosGiron.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4508,7 +4850,7 @@
         "Blended with 2024 ATP tour-level match stats from 8 match(es).",
         "Current ATP rank at snapshot: 67.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/CamiloUgoCarabelli.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/CamiloUgoCarabelli.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4576,7 +4918,7 @@
         "Blended with 2024 ATP tour-level match stats from 23 match(es).",
         "Current ATP rank at snapshot: 68.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ArthurCazaux.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ArthurCazaux.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4644,7 +4986,7 @@
         "Blended with 2024 ATP tour-level match stats from 3 match(es).",
         "Current ATP rank at snapshot: 69.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JuanManuelCerundolo.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JuanManuelCerundolo.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4712,7 +5054,7 @@
         "Blended with 2024 ATP tour-level match stats from 8 match(es).",
         "Current ATP rank at snapshot: 70.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/VitKopriva.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/VitKopriva.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4780,7 +5122,7 @@
         "Generated from ranking-based priors only.",
         "Current ATP rank at snapshot: 71.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ValentinRoyer.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ValentinRoyer.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4793,25 +5135,25 @@
     "handedness": "right",
     "backhand_hands": 2,
     "skills": {
-      "serve_power": 95,
-      "serve_accuracy": 80,
-      "second_serve_reliability": 78,
-      "return_quality": 72,
+      "serve_power": 91,
+      "serve_accuracy": 70,
+      "second_serve_reliability": 76,
+      "return_quality": 47,
       "forehand_quality": 83,
       "backhand_quality": 80,
       "movement": 78,
       "anticipation": 75,
       "rally_tolerance": 74,
-      "net_play": 85,
+      "net_play": 82,
       "composure": 82,
       "stamina": 81,
       "pressure_handling": 82
     },
     "tactics": {
       "baseline_aggression": 74,
-      "preferred_serve_direction": "t",
+      "preferred_serve_direction": "wide",
       "short_ball_attack": 69,
-      "net_frequency": 45
+      "net_frequency": 52
     },
     "spin": {
       "serve_spin": 58,
@@ -4830,20 +5172,77 @@
       "grass": 94
     },
     "derived_stats": {
-      "first_serve_in": 0.61,
-      "first_serve_points_won": 0.8,
+      "first_serve_in": 0.6216,
+      "first_serve_points_won": 0.788,
       "second_serve_points_won": 0.52,
-      "ace_rate": 0.16,
+      "ace_rate": 0.152,
       "double_fault_rate": 0.04,
-      "return_points_won": 0.33,
-      "break_rate": 0.16,
-      "hold_rate": 0.9,
+      "return_points_won": 0.338,
+      "break_rate": 0.1511,
+      "hold_rate": 0.884,
       "hard_win_rate": 0.69,
       "clay_win_rate": 0.46,
       "grass_win_rate": 0.76,
       "source_notes": [
-        "Manually curated starter profile tuned for serve dominance and grass-court upside."
+        "Manually curated starter profile tuned for serve dominance and grass-court upside.",
+        "Blended with current Tennis Abstract Match Charting Project data.",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/HubertHurkacz.html"
       ]
+    },
+    "curated_baseline": {
+      "skills": {
+        "serve_power": 95,
+        "serve_accuracy": 80,
+        "second_serve_reliability": 78,
+        "return_quality": 72,
+        "forehand_quality": 83,
+        "backhand_quality": 80,
+        "movement": 78,
+        "anticipation": 75,
+        "rally_tolerance": 74,
+        "net_play": 85,
+        "composure": 82,
+        "stamina": 81,
+        "pressure_handling": 82
+      },
+      "tactics": {
+        "baseline_aggression": 74,
+        "preferred_serve_direction": "t",
+        "short_ball_attack": 69,
+        "net_frequency": 45
+      },
+      "spin": {
+        "serve_spin": 58,
+        "forehand_spin": 48,
+        "backhand_spin": 46,
+        "slice_frequency": 40
+      },
+      "physical": {
+        "durability": 82,
+        "recovery": 80,
+        "peak_condition": 83
+      },
+      "surface_profile": {
+        "hard": 88,
+        "clay": 68,
+        "grass": 94
+      },
+      "derived_stats": {
+        "first_serve_in": 0.61,
+        "first_serve_points_won": 0.8,
+        "second_serve_points_won": 0.52,
+        "ace_rate": 0.16,
+        "double_fault_rate": 0.04,
+        "return_points_won": 0.33,
+        "break_rate": 0.16,
+        "hold_rate": 0.9,
+        "hard_win_rate": 0.69,
+        "clay_win_rate": 0.46,
+        "grass_win_rate": 0.76,
+        "source_notes": [
+          "Manually curated starter profile tuned for serve dominance and grass-court upside."
+        ]
+      }
     }
   },
   {
@@ -4909,7 +5308,7 @@
         "Blended with 2024 ATP tour-level match stats from 14 match(es).",
         "Current ATP rank at snapshot: 73.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/MattiaBellucci.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/MattiaBellucci.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -4977,7 +5376,7 @@
         "Blended with 2024 ATP tour-level match stats from 6 match(es).",
         "Current ATP rank at snapshot: 74.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/DamirDzumhur.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/DamirDzumhur.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5045,7 +5444,7 @@
         "Blended with 2024 ATP tour-level match stats from 53 match(es).",
         "Current ATP rank at snapshot: 75.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JanLennardStruff.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JanLennardStruff.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5113,7 +5512,7 @@
         "Blended with 2024 ATP tour-level match stats from 50 match(es).",
         "Current ATP rank at snapshot: 76.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlexanderShevchenko.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlexanderShevchenko.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5181,7 +5580,7 @@
         "Blended with 2024 ATP tour-level match stats from 4 match(es).",
         "Current ATP rank at snapshot: 77.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/RomanAndresBurruchaga.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/RomanAndresBurruchaga.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5249,7 +5648,7 @@
         "Blended with 2024 ATP tour-level match stats from 41 match(es).",
         "Current ATP rank at snapshot: 78.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/SebastianOfner.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/SebastianOfner.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5317,7 +5716,7 @@
         "Blended with 2024 ATP tour-level match stats from 3 match(es).",
         "Current ATP rank at snapshot: 79.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/EliotSpizzirri.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/EliotSpizzirri.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5385,7 +5784,7 @@
         "Blended with 2024 ATP tour-level match stats from 46 match(es).",
         "Current ATP rank at snapshot: 80.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/RobertoBautistaAgut.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/RobertoBautistaAgut.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5453,7 +5852,7 @@
         "Blended with 2024 ATP tour-level match stats from 17 match(es).",
         "Current ATP rank at snapshot: 81.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/HamadMedjedovic.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/HamadMedjedovic.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5521,7 +5920,7 @@
         "Blended with 2024 ATP tour-level match stats from 13 match(es).",
         "Current ATP rank at snapshot: 82.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ZacharySvajda.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ZacharySvajda.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5589,7 +5988,7 @@
         "Blended with 2024 ATP tour-level match stats from 12 match(es).",
         "Current ATP rank at snapshot: 83.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/ThiagoAgustinTirante.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/ThiagoAgustinTirante.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5657,7 +6056,7 @@
         "Blended with 2024 ATP tour-level match stats from 47 match(es).",
         "Current ATP rank at snapshot: 84.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AleksandarVukic.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AleksandarVukic.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5725,7 +6124,7 @@
         "Blended with 2024 ATP tour-level match stats from 32 match(es).",
         "Current ATP rank at snapshot: 85.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AleksandarKovacevic.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AleksandarKovacevic.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5793,7 +6192,7 @@
         "Blended with 2024 ATP tour-level match stats from 3 match(es).",
         "Current ATP rank at snapshot: 86.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/FilipMisolic.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/FilipMisolic.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5861,7 +6260,7 @@
         "Blended with 2024 ATP tour-level match stats from 11 match(es).",
         "Current ATP rank at snapshot: 87.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/FranciscoComesana.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/FranciscoComesana.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5929,7 +6328,7 @@
         "Blended with 2024 ATP tour-level match stats from 16 match(es).",
         "Current ATP rank at snapshot: 88.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/PabloCarrenoBusta.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/PabloCarrenoBusta.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -5997,7 +6396,7 @@
         "Generated from ranking-based priors only.",
         "Current ATP rank at snapshot: 89.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/RafaelJodar.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/RafaelJodar.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6065,7 +6464,7 @@
         "Blended with 2024 ATP tour-level match stats from 20 match(es).",
         "Current ATP rank at snapshot: 90.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/QuentinHalys.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/QuentinHalys.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6133,7 +6532,7 @@
         "Blended with 2024 ATP tour-level match stats from 44 match(es).",
         "Current ATP rank at snapshot: 91.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/MatteoBerrettini.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/MatteoBerrettini.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6201,7 +6600,7 @@
         "Blended with 2024 ATP tour-level match stats from 2 match(es).",
         "Current ATP rank at snapshot: 92.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlexanderBlockx.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlexanderBlockx.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6269,7 +6668,7 @@
         "Blended with 2024 ATP tour-level match stats from 64 match(es).",
         "Current ATP rank at snapshot: 93.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/GrigorDimitrov.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/GrigorDimitrov.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6337,7 +6736,7 @@
         "Blended with 2024 ATP tour-level match stats from 37 match(es).",
         "Current ATP rank at snapshot: 94.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/AlexandreMuller.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/AlexandreMuller.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6405,7 +6804,7 @@
         "Blended with 2024 ATP tour-level match stats from 24 match(es).",
         "Current ATP rank at snapshot: 95.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JamesDuckworth.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JamesDuckworth.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6473,7 +6872,7 @@
         "Blended with 2024 ATP tour-level match stats from 7 match(es).",
         "Current ATP rank at snapshot: 96.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/PatrickKypson.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/PatrickKypson.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6541,7 +6940,7 @@
         "Blended with 2024 ATP tour-level match stats from 5 match(es).",
         "Current ATP rank at snapshot: 97.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JacobFearnley.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JacobFearnley.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6609,7 +7008,7 @@
         "Blended with 2024 ATP tour-level match stats from 27 match(es).",
         "Current ATP rank at snapshot: 98.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/StanWawrinka.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/StanWawrinka.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6677,7 +7076,7 @@
         "Blended with 2024 ATP tour-level match stats from 7 match(es).",
         "Current ATP rank at snapshot: 99.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/JesperDeJong.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/JesperDeJong.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6745,7 +7144,7 @@
         "Blended with 2024 ATP tour-level match stats from 19 match(es).",
         "Current ATP rank at snapshot: 100.",
         "Blended with current Tennis Abstract Match Charting Project data.",
-        "Tennis Abstract charting snapshot fetched on 2026-04-10: https://www.tennisabstract.com/charting/CristianGarin.html",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/CristianGarin.html",
         "Normalized to a top-100-only in-game rating scale."
       ]
     }
@@ -6758,16 +7157,16 @@
     "handedness": "left",
     "backhand_hands": 2,
     "skills": {
-      "serve_power": 80,
+      "serve_power": 61,
       "serve_accuracy": 79,
       "second_serve_reliability": 88,
-      "return_quality": 93,
+      "return_quality": 90,
       "forehand_quality": 96,
       "backhand_quality": 88,
       "movement": 93,
       "anticipation": 95,
       "rally_tolerance": 97,
-      "net_play": 82,
+      "net_play": 88,
       "composure": 96,
       "stamina": 97,
       "pressure_handling": 96
@@ -6776,7 +7175,7 @@
       "baseline_aggression": 78,
       "preferred_serve_direction": "wide",
       "short_ball_attack": 82,
-      "net_frequency": 30
+      "net_frequency": 28
     },
     "spin": {
       "serve_spin": 82,
@@ -6795,20 +7194,77 @@
       "grass": 83
     },
     "derived_stats": {
-      "first_serve_in": 0.67,
-      "first_serve_points_won": 0.73,
-      "second_serve_points_won": 0.58,
-      "ace_rate": 0.06,
+      "first_serve_in": 0.6746,
+      "first_serve_points_won": 0.718,
+      "second_serve_points_won": 0.568,
+      "ace_rate": 0.052,
       "double_fault_rate": 0.02,
-      "return_points_won": 0.42,
-      "break_rate": 0.3,
-      "hold_rate": 0.84,
+      "return_points_won": 0.412,
+      "break_rate": 0.2898,
+      "hold_rate": 0.8597,
       "hard_win_rate": 0.72,
       "clay_win_rate": 0.91,
       "grass_win_rate": 0.67,
       "source_notes": [
-        "Manually curated left-handed sample tuned for heavy forehand topspin and clay leverage."
+        "Manually curated left-handed sample tuned for heavy forehand topspin and clay leverage.",
+        "Blended with current Tennis Abstract Match Charting Project data.",
+        "Tennis Abstract charting snapshot fetched on 2026-04-11: https://www.tennisabstract.com/charting/RafaelNadal.html"
       ]
+    },
+    "curated_baseline": {
+      "skills": {
+        "serve_power": 80,
+        "serve_accuracy": 79,
+        "second_serve_reliability": 88,
+        "return_quality": 93,
+        "forehand_quality": 96,
+        "backhand_quality": 88,
+        "movement": 93,
+        "anticipation": 95,
+        "rally_tolerance": 97,
+        "net_play": 82,
+        "composure": 96,
+        "stamina": 97,
+        "pressure_handling": 96
+      },
+      "tactics": {
+        "baseline_aggression": 78,
+        "preferred_serve_direction": "wide",
+        "short_ball_attack": 82,
+        "net_frequency": 30
+      },
+      "spin": {
+        "serve_spin": 82,
+        "forehand_spin": 98,
+        "backhand_spin": 78,
+        "slice_frequency": 50
+      },
+      "physical": {
+        "durability": 96,
+        "recovery": 94,
+        "peak_condition": 96
+      },
+      "surface_profile": {
+        "hard": 88,
+        "clay": 99,
+        "grass": 83
+      },
+      "derived_stats": {
+        "first_serve_in": 0.67,
+        "first_serve_points_won": 0.73,
+        "second_serve_points_won": 0.58,
+        "ace_rate": 0.06,
+        "double_fault_rate": 0.02,
+        "return_points_won": 0.42,
+        "break_rate": 0.3,
+        "hold_rate": 0.84,
+        "hard_win_rate": 0.72,
+        "clay_win_rate": 0.91,
+        "grass_win_rate": 0.67,
+        "source_notes": [
+          "Manually curated left-handed sample tuned for heavy forehand topspin and clay leverage."
+        ]
+      }
     }
   }
 ]

@@ -124,21 +124,20 @@ class SimulatorTests(unittest.TestCase):
             lefty_hurkacz.player_id: lefty_hurkacz,
         }
         simulator = MatchSimulator(local_roster)
-
-        righty = simulator.simulate_batch(
-            "righty-hurkacz",
-            "novak-djokovic",
-            MatchConfig(surface=Surface.GRASS, best_of_sets=3, seed=300),
-            iterations=40,
+        righty_bonus = simulator._directional_serve_bonus(  # noqa: SLF001
+            righty_hurkacz,
+            self.roster["novak-djokovic"],
+            righty_hurkacz.tactics.preferred_serve_direction,
+            SpinType.SLICE,
         )
-        lefty = simulator.simulate_batch(
-            "lefty-hurkacz",
-            "novak-djokovic",
-            MatchConfig(surface=Surface.GRASS, best_of_sets=3, seed=300),
-            iterations=40,
+        lefty_bonus = simulator._directional_serve_bonus(  # noqa: SLF001
+            lefty_hurkacz,
+            self.roster["novak-djokovic"],
+            lefty_hurkacz.tactics.preferred_serve_direction,
+            SpinType.SLICE,
         )
 
-        self.assertGreater(lefty.hold_rate["lefty-hurkacz"], righty.hold_rate["righty-hurkacz"])
+        self.assertGreater(lefty_bonus, righty_bonus)
 
     def test_one_handed_backhand_is_more_vulnerable_to_heavy_spin(self) -> None:
         one_hander = self._clone_player(

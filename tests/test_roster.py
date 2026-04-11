@@ -66,6 +66,12 @@ class RosterTests(unittest.TestCase):
             0.9,
         )
 
+    def test_curated_profiles_are_also_refreshed_with_charting_notes(self) -> None:
+        for player_id in ("novak-djokovic", "hubert-hurkacz", "rafael-nadal"):
+            notes = self.roster[player_id].derived_stats.source_notes
+            self.assertTrue(any("Manually curated" in note for note in notes))
+            self.assertTrue(any("Tennis Abstract" in note for note in notes))
+
 
 if __name__ == "__main__":
     unittest.main()

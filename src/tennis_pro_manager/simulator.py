@@ -10,6 +10,7 @@ from .models import (
     MatchConfig,
     MatchResult,
     PlayerMatchStats,
+    PointRecord,
     PlayerProfile,
     PointState,
     RallyQuality,
@@ -103,6 +104,7 @@ class MatchSimulator:
         rng = random.Random(config.seed)
         shot_log: list[ShotEvent] = []
         rally_lengths: list[int] = []
+        points: list[PointRecord] = []
 
         point_number = 1
         while not tracker.is_match_over:
@@ -149,6 +151,23 @@ class MatchSimulator:
                 if update.game_winner_id == server_id:
                     stats[server_id].service_games_won += 1
 
+            points.append(
+                self._build_point_record(
+                    match_players=players,
+                    point_state=point_state,
+                    winner_id=point_result.winner_id,
+                    events=point_result.events,
+                    rally_length=point_result.rally_length,
+                    tracker=tracker,
+                    game_completed=update.game_completed,
+                    set_completed=update.set_completed,
+                    match_completed=update.match_completed,
+                    game_winner_id=update.game_winner_id,
+                    set_winner_id=update.set_winner_id,
+                    completed_set=update.completed_set,
+                )
+            )
+
             point_number += 1
 
         winner_id = tracker.match_winner_id
@@ -166,6 +185,7 @@ class MatchSimulator:
             seed=config.seed,
             surface=config.surface,
             best_of_sets=config.best_of_sets,
+            points=points,
         )
 
     def simulate_batch(
@@ -258,6 +278,70 @@ class MatchSimulator:
             return self.roster[player]
         except KeyError as exc:
             raise KeyError(f"Unknown player id: {player}") from exc
+
+    def _build_point_record(
+        self,
+        *,
+        match_players: dict[str, PlayerProfile],
+        point_state: PointState,
+        winner_id: str,
+        events: list[ShotEvent],
+        rally_length: int,
+        tracker: ScoreTracker,
+        game_completed: bool,
+        set_completed: bool,
+        match_completed: bool,
+        game_winner_id: str | None,
+        set_winner_id: str | None,
+        completed_set,
+    ) -> PointRecord:
+        player_one_id, player_two_id = match_players
+        set_number = sum(point_state.sets_won.values()) + 1
+        game_number_in_set = sum(point_state.games.values()) + 1
+        sets_after = dict(tracker.sets_won)
+
+        if set_completed and completed_set is not None:
+            games_after = dict(completed_set.games)
+            score_after = completed_set.score_for(player_one_id, player_two_id)
+            point_score_after = "Match" if match_completed else "Set"
+        else:
+            games_after = dict(tracker.current_games)
+            score_after = tracker.snapshot(point_state.point_number + 1).score_before
+            point_score_after = "Game" if game_completed else tracker.current_point_score_label()
+
+        terminal_event = events[-1]
+        return PointRecord(
+            point_number=point_state.point_number,
+            set_number=set_number,
+            game_number_in_set=game_number_in_set,
+            server_id=point_state.server_id,
+            receiver_id=point_state.receiver_id,
+            winner_id=winner_id,
+            score_before=point_state.score_before,
+            score_after=score_after,
+            point_score_before=point_state.point_score,
+            point_score_after=point_score_after,
+            sets_before=dict(point_state.sets_won),
+            sets_after=sets_after,
+            games_before=dict(point_state.games),
+            games_after=games_after,
+            is_tiebreak=point_state.is_tiebreak,
+            break_point_for=point_state.break_point_for,
+            set_point_for=point_state.set_point_for,
+            match_point_for=point_state.match_point_for,
+            pressure_index=point_state.pressure_index,
+            pressure_label=point_state.pressure_label,
+            rally_length=rally_length,
+            terminal_outcome=terminal_event.outcome,
+            terminal_shot_kind=terminal_event.shot_kind,
+            terminal_striker_id=terminal_event.striker_id,
+            events=list(events),
+            game_completed=game_completed,
+            set_completed=set_completed,
+            match_completed=match_completed,
+            game_winner_id=game_winner_id,
+            set_winner_id=set_winner_id,
+        )
 
     def _simulate_point(
         self,
@@ -661,6 +745,32 @@ class MatchSimulator:
         else:
             stats[receiver.player_id].forced_errors_drawn += 1
             winner_id = receiver.player_id
+        winner = server if winner_id == server.player_id else receiver
+        loser = receiver if winner_id == server.player_id else server
+        stats[winner.player_id].total_shots += 1
+        winner_hand = (
+            ShotHand.FOREHAND
+            if winner.skills.forehand_quality >= winner.skills.backhand_quality
+            else ShotHand.BACKHAND
+        )
+        events.append(
+            ShotEvent(
+                point_number=point_state.point_number,
+                shot_number=shot_number,
+                score_before=point_state.score_before,
+                striker_id=winner.player_id,
+                receiver_id=loser.player_id,
+                shot_kind=ShotKind.DRIVE,
+                shot_hand=winner_hand,
+                quality=RallyQuality.AGGRESSIVE,
+                outcome=ShotOutcome.FORCED_ERROR,
+                spin_type=incoming_spin_type,
+                pressure=self._pressure(point_state, winner.player_id),
+                fatigue=self._fatigue(stats[winner.player_id], winner),
+                detail="Extended rally breaks down under pressure",
+            )
+        )
+        rally_length += 1
         return PointSimulationResult(winner_id, events, rally_length)
 
     def _pressure(self, point_state: PointState, player_id: str) -> float:

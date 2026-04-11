@@ -14,6 +14,7 @@ Tennis Pro Manager is a simulation-first tennis management game prototype inspir
 
 - `docs/`: design, roadmap, simulation, architecture, and testing contracts.
 - `src/tennis_pro_manager/`: engine, scoring, roster loading, ingest utilities, reporting, and CLI.
+- `web/`: React + TypeScript web UI scaffold for the simulation desk.
 - `data/players/`: ATP player profiles used by the current prototype.
 - `scripts/`: build-time utilities for roster generation and other offline prep tasks.
 - `data/external/`: cached third-party inputs used to enrich roster generation.
@@ -75,6 +76,10 @@ python3 scripts/build_atp_top_100_roster.py \
 - [Testing and Acceptance](docs/06-testing-and-acceptance.md)
 - [Calibration Plan](docs/07-calibration-plan.md)
 - [Roster Generation](docs/08-roster-generation.md)
+- [Web UI Plan](docs/09-web-ui-plan.md)
+- [API Contracts](docs/10-api-contracts.md)
+- [Match Report Model](docs/11-match-report-model.md)
+- [Design System](docs/12-design-system.md)
 
 ## What Exists Today
 
@@ -90,3 +95,22 @@ After the match engine, the best next step is a lightweight world layer:
 2. Rankings and points.
 3. Carry-over fatigue and recovery.
 4. Basic player progression and tactical presets.
+
+## Web API Foundation
+
+The next delivery layer is a local web API and a separate frontend app. The backend contract will expose structured player, compare, match, and batch payloads so the UI can render simulation dashboards and Flashscore-style match reports without parsing CLI output.
+
+Planned runtime setup:
+
+```bash
+python3 -m pip install -e '.[dev,web]'
+python3 tpm.py serve-api --host 127.0.0.1 --port 8000
+```
+
+Frontend runtime setup:
+
+```bash
+cd web
+npm install
+npm run dev
+```

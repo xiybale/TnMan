@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import ssl
 import sys
 import time
@@ -15,7 +16,7 @@ SRC = PROJECT_ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from build_atp_top_100_roster import TOP_100_SNAPSHOT
+from build_atp_top_100_roster import AUTO_GENERATED_NOTE_PREFIX, TOP_100_SNAPSHOT
 from tennis_pro_manager.tennis_abstract import (
     ChartingSnapshot,
     charting_player_url,
@@ -24,12 +25,15 @@ from tennis_pro_manager.tennis_abstract import (
 )
 
 DEFAULT_OUTPUT = PROJECT_ROOT / "data" / "external" / "tennis_abstract_charting.json"
+DEFAULT_ROSTER_PATH = PROJECT_ROOT / "data" / "players" / "atp_profiles.json"
 USER_AGENT = "TennisProManager/0.1 (+https://www.tennisabstract.com/)"
 SSL_CONTEXT = ssl._create_unverified_context()
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Fetch Tennis Abstract charting pages for the ATP top 100.")
+    parser = argparse.ArgumentParser(
+        description="Fetch Tennis Abstract charting pages for the ATP top 100 and preserved curated extras."
+    )
     parser.add_argument(
         "--output",
         type=Path,
@@ -48,7 +52,31 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         default=None,
         help="Optional limit for partial fetches while testing.",
     )
+    parser.add_argument(
+        "--roster-path",
+        type=Path,
+        default=DEFAULT_ROSTER_PATH,
+        help="Roster JSON used to discover preserved curated extras outside the current top 100.",
+    )
     return parser.parse_args(argv)
+
+
+def load_curated_roster_names(roster_path: Path) -> list[str]:
+    if not roster_path.exists():
+        return []
+
+    names: list[str] = []
+    seen: set[str] = set()
+    for entry in json.loads(roster_path.read_text()):
+        name = entry.get("name")
+        notes = entry.get("derived_stats", {}).get("source_notes", [])
+        if not name or name in seen:
+            continue
+        if notes and str(notes[0]).startswith(AUTO_GENERATED_NOTE_PREFIX):
+            continue
+        names.append(str(name))
+        seen.add(str(name))
+    return names
 
 
 def fetch_page(url: str) -> str:
@@ -63,14 +91,18 @@ def main(argv: list[str] | None = None) -> int:
     snapshots: dict[str, ChartingSnapshot] = {}
     fetched_at = datetime.now(UTC).date().isoformat()
     delay_seconds = max(args.delay_ms, 0) / 1000.0
-    entries = TOP_100_SNAPSHOT[: args.limit] if args.limit else TOP_100_SNAPSHOT
+    player_names = [entry["name"] for entry in TOP_100_SNAPSHOT]
+    for extra_name in load_curated_roster_names(args.roster_path):
+        if extra_name not in player_names:
+            player_names.append(extra_name)
+    if args.limit:
+        player_names = player_names[: args.limit]
 
     fetched = 0
     skipped = 0
     failures = 0
 
-    for snapshot_entry in entries:
-        player_name = snapshot_entry["name"]
+    for player_name in player_names:
         url = charting_player_url(player_name)
         try:
             page_html = fetch_page(url)

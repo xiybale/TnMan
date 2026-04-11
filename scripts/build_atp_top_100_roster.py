@@ -7,6 +7,7 @@ import re
 import sys
 import unicodedata
 from collections import defaultdict
+from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
@@ -184,8 +185,17 @@ TOP_100_RANK_BIAS_BY_GROUP = {
 AUTO_GENERATED_NOTE_PREFIX = "ATP top-100 snapshot from "
 TOP_100_NORMALIZATION_NOTE = "Normalized to a top-100-only in-game rating scale."
 TENNIS_ABSTRACT_NOTE = "Blended with current Tennis Abstract Match Charting Project data."
+TENNIS_ABSTRACT_NOTE_PREFIX = "Tennis Abstract charting snapshot fetched on "
 DEFAULT_TENNIS_ABSTRACT_CACHE = (
     PROJECT_ROOT / "data" / "external" / "tennis_abstract_charting.json"
+)
+CURATED_BASELINE_SECTIONS = (
+    "skills",
+    "tactics",
+    "spin",
+    "physical",
+    "surface_profile",
+    "derived_stats",
 )
 
 
@@ -238,6 +248,10 @@ def _scale_to_rating(value: float, lower: float, upper: float) -> int:
         return 50
     clipped = _clamp((value - lower) / (upper - lower), 0.0, 1.0)
     return int(round(clipped * 100))
+
+
+def _blend_int(existing: int, target: int, weight: float) -> int:
+    return int(round(existing * (1.0 - weight) + target * weight))
 
 
 def _game_win_probability(point_win_probability: float) -> float:
@@ -569,6 +583,165 @@ def _ensure_pressure_handling(entry: dict[str, object]) -> None:
         skills["pressure_handling"] = int(skills.get("composure", 50))
 
 
+def _refresh_tennis_abstract_notes(
+    notes: list[str],
+    snapshot: ChartingSnapshot,
+) -> None:
+    filtered = [
+        note
+        for note in notes
+        if note != TENNIS_ABSTRACT_NOTE and not note.startswith(TENNIS_ABSTRACT_NOTE_PREFIX)
+    ]
+    filtered.append(TENNIS_ABSTRACT_NOTE)
+    filtered.append(
+        f"{TENNIS_ABSTRACT_NOTE_PREFIX}{snapshot.fetched_at}: {snapshot.source_url}"
+    )
+    notes[:] = filtered
+
+
+def _build_curated_baseline(entry: dict[str, object]) -> dict[str, object]:
+    baseline = {
+        section: deepcopy(entry[section])
+        for section in CURATED_BASELINE_SECTIONS
+        if isinstance(entry.get(section), dict)
+    }
+    derived_stats = baseline.get("derived_stats")
+    if isinstance(derived_stats, dict):
+        notes = derived_stats.get("source_notes", [])
+        if isinstance(notes, list):
+            derived_stats["source_notes"] = [
+                note
+                for note in notes
+                if note != TENNIS_ABSTRACT_NOTE and not note.startswith(TENNIS_ABSTRACT_NOTE_PREFIX)
+            ]
+    return baseline
+
+
+def _ensure_curated_baseline(entry: dict[str, object]) -> dict[str, object]:
+    existing = entry.get("curated_baseline")
+    if isinstance(existing, dict) and all(isinstance(existing.get(section), dict) for section in CURATED_BASELINE_SECTIONS):
+        return deepcopy(existing)
+
+    baseline = _build_curated_baseline(entry)
+    entry["curated_baseline"] = deepcopy(baseline)
+    return baseline
+
+
+def _blend_curated_entry_with_charting(
+    entry: dict[str, object],
+    snapshot: ChartingSnapshot,
+) -> None:
+    baseline = _ensure_curated_baseline(entry)
+    for section in CURATED_BASELINE_SECTIONS:
+        if isinstance(baseline.get(section), dict):
+            entry[section] = deepcopy(baseline[section])
+
+    _ensure_pressure_handling(entry)
+    skills = entry.get("skills")
+    tactics = entry.get("tactics")
+    derived_stats = entry.get("derived_stats")
+    if not isinstance(skills, dict) or not isinstance(tactics, dict) or not isinstance(derived_stats, dict):
+        return
+
+    notes = derived_stats.setdefault("source_notes", [])
+    if not isinstance(notes, list):
+        notes = []
+        derived_stats["source_notes"] = notes
+
+    service_weight = min(snapshot.service_points / 18000.0, 1.0) * 0.40
+    return_weight = min(snapshot.return_points / 18000.0, 1.0) * 0.40
+    net_weight = min((snapshot.charted_matches or 0) / 150.0, 1.0) * 0.35
+
+    first_serve_in = _blend(
+        float(derived_stats.get("first_serve_in", snapshot.first_serve_in)),
+        snapshot.first_serve_in,
+        service_weight,
+    )
+    first_serve_points_won = _blend(
+        float(derived_stats.get("first_serve_points_won", snapshot.first_serve_points_won)),
+        snapshot.first_serve_points_won,
+        service_weight,
+    )
+    second_serve_points_won = _blend(
+        float(derived_stats.get("second_serve_points_won", snapshot.second_serve_points_won)),
+        snapshot.second_serve_points_won,
+        service_weight,
+    )
+    ace_rate = _blend(
+        float(derived_stats.get("ace_rate", snapshot.ace_rate)),
+        snapshot.ace_rate,
+        service_weight,
+    )
+    return_points_won = _blend(
+        float(derived_stats.get("return_points_won", snapshot.return_points_won)),
+        snapshot.return_points_won,
+        return_weight,
+    )
+
+    service_point_win_rate = first_serve_in * first_serve_points_won + (
+        1.0 - first_serve_in
+    ) * second_serve_points_won
+    hold_rate = _game_win_probability(service_point_win_rate)
+    break_rate = _game_win_probability(return_points_won)
+
+    derived_stats["first_serve_in"] = round(first_serve_in, 4)
+    derived_stats["first_serve_points_won"] = round(first_serve_points_won, 4)
+    derived_stats["second_serve_points_won"] = round(second_serve_points_won, 4)
+    derived_stats["ace_rate"] = round(ace_rate, 4)
+    derived_stats["return_points_won"] = round(return_points_won, 4)
+    derived_stats["hold_rate"] = round(hold_rate, 4)
+    derived_stats["break_rate"] = round(break_rate, 4)
+
+    serve_power_target = _scale_to_rating(
+        ace_rate * 0.55 + first_serve_points_won * 0.45,
+        0.30,
+        0.46,
+    )
+    serve_accuracy_target = _scale_to_rating(first_serve_in, 0.50, 0.72)
+    second_serve_target = _scale_to_rating(
+        second_serve_points_won * 0.75 + (1.0 - float(derived_stats.get("double_fault_rate", 0.03))) * 0.25,
+        0.45,
+        0.70,
+    )
+    return_quality_target = _scale_to_rating(
+        return_points_won * 0.75 + break_rate * 0.25,
+        0.28,
+        0.40,
+    )
+
+    skills["serve_power"] = _blend_int(int(skills["serve_power"]), serve_power_target, service_weight)
+    skills["serve_accuracy"] = _blend_int(
+        int(skills["serve_accuracy"]),
+        serve_accuracy_target,
+        service_weight,
+    )
+    skills["second_serve_reliability"] = _blend_int(
+        int(skills["second_serve_reliability"]),
+        second_serve_target,
+        service_weight,
+    )
+    skills["return_quality"] = _blend_int(
+        int(skills["return_quality"]),
+        return_quality_target,
+        return_weight,
+    )
+
+    if snapshot.net_points_won is not None:
+        net_play_target = _scale_to_rating(snapshot.net_points_won, 0.56, 0.76)
+        skills["net_play"] = _blend_int(int(skills["net_play"]), net_play_target, net_weight)
+
+    tactics["preferred_serve_direction"] = snapshot.preferred_serve_direction
+    if snapshot.net_approach_rate is not None:
+        net_frequency_target = _scale_to_rating(snapshot.net_approach_rate, 0.03, 0.14)
+        tactics["net_frequency"] = _blend_int(
+            int(tactics["net_frequency"]),
+            net_frequency_target,
+            net_weight,
+        )
+
+    _refresh_tennis_abstract_notes(notes, snapshot)
+
+
 def _get_nested(entry: dict[str, object], path: tuple[str, str]) -> int:
     parent = entry[path[0]]
     if not isinstance(parent, dict):
@@ -659,6 +832,9 @@ def build_roster(
         existing_entry = existing_by_id.get(player_id)
         if existing_entry is not None and not _is_auto_generated_entry(existing_entry):
             _ensure_pressure_handling(existing_entry)
+            snapshot = charting_by_player_id.get(player_id)
+            if snapshot is not None:
+                _blend_curated_entry_with_charting(existing_entry, snapshot)
             output_entries.append(existing_entry)
             kept_existing += 1
             continue
@@ -687,6 +863,9 @@ def build_roster(
     for entry in existing_entries:
         if entry["player_id"] not in included_ids:
             _ensure_pressure_handling(entry)
+            snapshot = charting_by_player_id.get(entry["player_id"])
+            if snapshot is not None and not _is_auto_generated_entry(entry):
+                _blend_curated_entry_with_charting(entry, snapshot)
             output_entries.append(entry)
 
     output_path.write_text(json.dumps(output_entries, indent=2) + "\n")

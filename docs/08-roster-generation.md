@@ -34,6 +34,8 @@ It does six things:
 5. Preserves existing curated profiles when they already exist in the roster, and generates the missing current top-100 players from structured rows plus fallback priors.
 6. Normalizes auto-generated in-game ratings into a top-100-only scale so generated players do not look like generic tour-level or challenger-level profiles.
 
+For preserved curated profiles, the charting blend is lighter-touch than the auto-generated path. It refreshes serve, return, preferred serve direction, and net-tendency fields from current charting data while retaining the manual profile's broader gameplay identity.
+
 ## Handedness And Backhand Style
 
 Handedness comes from the structured player metadata where available. A small manual override layer exists for players with unknown entries in the source file. Backhand style is currently explicit for known one-handed players in the top 100 and defaults to two hands otherwise.

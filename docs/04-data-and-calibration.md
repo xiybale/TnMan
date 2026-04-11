@@ -19,6 +19,7 @@ V1 uses a hybrid strategy:
 - a normalization pipeline that can transform structured ATP-facing rows into internal profiles,
 - manual overrides for players where public data is incomplete or noisy.
 - explicit handedness, backhand style, and spin tendencies where those traits materially affect matchups.
+- preserved curated profiles can also be refreshed with current Tennis Abstract serve, return, and net-tendency data without discarding their manual identity tuning.
 
 ## Current Roster Build
 

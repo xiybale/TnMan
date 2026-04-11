@@ -47,6 +47,12 @@ def build_parser() -> argparse.ArgumentParser:
     inspect_player.add_argument("player_id")
     inspect_player.add_argument("--roster-path")
 
+    serve_api = subparsers.add_parser("serve-api", help="Run the local web API")
+    serve_api.add_argument("--host", default="127.0.0.1")
+    serve_api.add_argument("--port", type=int, default=8000)
+    serve_api.add_argument("--reload", action="store_true")
+    serve_api.add_argument("--roster-path")
+
     return parser
 
 
@@ -58,6 +64,23 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "inspect-player":
             player = load_player(args.player_id, args.roster_path)
             print(format_player_profile(player))
+            return 0
+
+        if args.command == "serve-api":
+            try:
+                import uvicorn
+            except ImportError as exc:
+                print(
+                    "error: install web dependencies first with "
+                    "python3 -m pip install -e '.[web]'",
+                    file=sys.stderr,
+                )
+                return 2
+
+            from .api import create_app
+
+            app = create_app(args.roster_path)
+            uvicorn.run(app, host=args.host, port=args.port, reload=args.reload)
             return 0
 
         roster = load_roster(args.roster_path)

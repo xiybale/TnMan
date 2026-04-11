@@ -260,6 +260,40 @@ class ShotEvent:
 
 
 @dataclass(slots=True)
+class PointRecord:
+    point_number: int
+    set_number: int
+    game_number_in_set: int
+    server_id: str
+    receiver_id: str
+    winner_id: str
+    score_before: str
+    score_after: str
+    point_score_before: str
+    point_score_after: str
+    sets_before: dict[str, int]
+    sets_after: dict[str, int]
+    games_before: dict[str, int]
+    games_after: dict[str, int]
+    is_tiebreak: bool
+    break_point_for: str | None
+    set_point_for: str | None
+    match_point_for: str | None
+    pressure_index: int
+    pressure_label: str
+    rally_length: int
+    terminal_outcome: ShotOutcome
+    terminal_shot_kind: ShotKind
+    terminal_striker_id: str
+    events: list[ShotEvent]
+    game_completed: bool = False
+    set_completed: bool = False
+    match_completed: bool = False
+    game_winner_id: str | None = None
+    set_winner_id: str | None = None
+
+
+@dataclass(slots=True)
 class PlayerMatchStats:
     points_played: int = 0
     total_points_won: int = 0
@@ -346,6 +380,7 @@ class MatchResult:
     seed: int
     surface: Surface
     best_of_sets: int
+    points: list[PointRecord] = field(default_factory=list)
 
     @property
     def average_rally_length(self) -> float:
