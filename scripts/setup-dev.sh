@@ -25,6 +25,9 @@ else
   echo "Backend ready in $PIP_TARGET_DIR"
 fi
 
-"$NPM_BIN" --prefix web install
-
-echo "Frontend ready in web/node_modules"
+if command -v "$NPM_BIN" >/dev/null 2>&1; then
+  "$NPM_BIN" --prefix web install
+  echo "Frontend ready in web/node_modules"
+else
+  echo "npm not found; skipped frontend dependency install" >&2
+fi

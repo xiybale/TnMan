@@ -37,7 +37,7 @@ On this host, `python3 -m venv` is currently blocked because the distro package 
 ./scripts/setup-dev.sh
 ```
 
-That script prefers `.venv` when available and otherwise installs a self-contained backend toolchain into `.pydeps/` plus the frontend dependencies into `web/node_modules/`.
+That script prefers `.venv` when available and otherwise installs a self-contained backend toolchain into `.pydeps/`. If `npm` is available, it also installs the frontend dependencies into `web/node_modules/`; otherwise it skips the frontend step with a warning.
 
 Legacy convenience launcher:
 
@@ -113,6 +113,8 @@ Frontend dev server:
 cp web/.env.example web/.env
 ./scripts/dev-frontend.sh
 ```
+
+The frontend scripts require Node/npm. On machines without `npm`, backend development and CLI verification still work, but the frontend install and dev server are skipped.
 
 Backend tests:
 
