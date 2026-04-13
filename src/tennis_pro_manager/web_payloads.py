@@ -49,15 +49,18 @@ def build_player_directory_payload(
             or needle in player.country.lower()
         ]
 
-    players.sort(
-        key=lambda player: (
-            player.surface_profile.comfort(surface) if surface else 0,
-            _overall_rating(player),
-            player.name,
-        ),
-        reverse=True,
+    summaries = [
+        (build_player_summary_payload(player), player.surface_profile.comfort(surface) if surface else 0)
+        for player in players
+    ]
+    summaries.sort(
+        key=lambda item: (
+            -item[0]["overallRating"],
+            -item[1],
+            item[0]["name"],
+        )
     )
-    return {"players": [build_player_summary_payload(player) for player in players]}
+    return {"players": [summary for summary, _surface_comfort in summaries]}
 
 
 def build_player_summary_payload(player: PlayerProfile) -> dict[str, Any]:

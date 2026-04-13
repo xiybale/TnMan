@@ -17,6 +17,7 @@ from tennis_pro_manager.web_payloads import (
     build_compare_payload,
     build_match_report_payload,
     build_player_directory_payload,
+    build_player_payload,
 )
 
 
@@ -103,6 +104,23 @@ class WebPayloadTests(unittest.TestCase):
 
         self.assertEqual(len(payload["players"]), 1)
         self.assertEqual(payload["players"][0]["playerId"], "novak-djokovic")
+
+    def test_player_directory_is_sorted_by_overall_rating_desc(self) -> None:
+        payload = build_player_directory_payload(self.roster, surface=Surface.HARD)
+
+        players = payload["players"]
+        ratings = [player["overallRating"] for player in players]
+        self.assertEqual(ratings, sorted(ratings, reverse=True))
+        self.assertEqual(players[0]["playerId"], "novak-djokovic")
+        sinner_index = next(index for index, player in enumerate(players) if player["playerId"] == "jannik-sinner")
+        self.assertGreater(sinner_index, 0)
+
+    def test_player_payload_exposes_full_skill_set(self) -> None:
+        payload = build_player_payload(self.roster["novak-djokovic"])
+
+        self.assertGreaterEqual(len(payload["skills"]), 13)
+        self.assertIn("servePower", payload["skills"])
+        self.assertIn("pressureHandling", payload["skills"])
 
 
 if __name__ == "__main__":

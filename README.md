@@ -22,23 +22,24 @@ Tennis Pro Manager is a simulation-first tennis management game prototype inspir
 
 ## Quick Start
 
-The metadata is prepared for a `uv` or `pip` workflow.
-
-```bash
-uv sync
-uv run tpm simulate-match novak-djokovic carlos-alcaraz --surface clay --seed 7
-```
-
-If `uv` is not installed locally, the project also works with standard Python tooling:
+The cleanest local workflow is an editable install in `.venv`.
 
 ```bash
 python3 -m venv .venv
-. .venv/bin/activate
-python3 -m pip install -e '.[dev]'
-tpm inspect-player jannik-sinner
+.venv/bin/python -m pip install -U pip
+.venv/bin/python -m pip install -e '.[dev,web]'
+.venv/bin/python -m tennis_pro_manager inspect-player jannik-sinner
 ```
 
-For this workspace, a convenience launcher is included:
+On this host, `python3 -m venv` is currently blocked because the distro package `python3.12-venv` is missing. To keep development repeatable without modifying the system Python, use the local setup script instead:
+
+```bash
+./scripts/setup-dev.sh
+```
+
+That script prefers `.venv` when available and otherwise installs a self-contained backend toolchain into `.pydeps/` plus the frontend dependencies into `web/node_modules/`.
+
+Legacy convenience launcher:
 
 ```bash
 python3 tpm.py simulate-match novak-djokovic carlos-alcaraz --surface hard --seed 42
@@ -98,19 +99,25 @@ After the match engine, the best next step is a lightweight world layer:
 
 ## Web API Foundation
 
-The next delivery layer is a local web API and a separate frontend app. The backend contract will expose structured player, compare, match, and batch payloads so the UI can render simulation dashboards and Flashscore-style match reports without parsing CLI output.
+The backend contract exposes structured player, compare, match, and batch payloads so the UI can render simulation dashboards and Flashscore-style match reports without parsing CLI output.
 
-Planned runtime setup:
-
-```bash
-python3 -m pip install -e '.[dev,web]'
-python3 tpm.py serve-api --host 127.0.0.1 --port 8000
-```
-
-Frontend runtime setup:
+Backend dev server:
 
 ```bash
-cd web
-npm install
-npm run dev
+./scripts/dev-backend.sh
 ```
+
+Frontend dev server:
+
+```bash
+cp web/.env.example web/.env
+./scripts/dev-frontend.sh
+```
+
+Backend tests:
+
+```bash
+./scripts/test-backend.sh -q
+```
+
+If the host later gets `python3.12-venv`, rerun `./scripts/setup-dev.sh` and it will switch back to the cleaner editable `.venv` workflow automatically.

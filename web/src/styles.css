@@ -61,6 +61,21 @@ select {
   margin-bottom: 20px;
 }
 
+.hero-actions {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.hero-meta-card {
+  max-width: 300px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 14px 16px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.03);
+}
+
 .eyebrow {
   margin: 0 0 10px;
   color: var(--accent);
@@ -253,8 +268,18 @@ h2 {
 
 .spotlight-grid {
   display: grid;
-  grid-template-columns: minmax(240px, 1.1fr) minmax(220px, 1fr) minmax(220px, 1fr);
   gap: 18px;
+}
+
+.spotlight-lower-grid {
+  display: grid;
+  grid-template-columns: minmax(420px, 1.35fr) minmax(240px, 0.9fr) minmax(300px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.spotlight-identity-card {
+  padding: 20px;
 }
 
 .identity-card,
@@ -270,6 +295,18 @@ h2 {
   padding: 18px;
 }
 
+.skill-column {
+  min-height: 0;
+}
+
+.skill-column-wide {
+  min-width: 0;
+}
+
+.radar-column {
+  align-self: stretch;
+}
+
 .identity-topline,
 .tag-row,
 .metric-grid,
@@ -282,7 +319,11 @@ h2 {
 .report-stack,
 .games-list,
 .shot-list,
-.point-log {
+.point-log,
+.recent-panel,
+.recent-list,
+.distribution-grid,
+.distribution-panel {
   display: grid;
   gap: 12px;
 }
@@ -290,6 +331,77 @@ h2 {
 .tag-row {
   display: flex;
   flex-wrap: wrap;
+}
+
+.subsection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.skill-list {
+  display: grid;
+  gap: 12px;
+}
+
+.dense-skill-list {
+  gap: 10px;
+}
+
+.skill-group {
+  display: grid;
+  gap: 10px;
+}
+
+.compact-skill-group {
+  gap: 8px;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 12px;
+}
+
+.secondary-skill-grid {
+  grid-template-columns: 1fr;
+}
+
+.tactics-stack {
+  gap: 14px;
+}
+
+.compact-header {
+  margin-bottom: 10px;
+}
+
+.skill-value {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-value.is-muted {
+  opacity: 0.72;
+}
+
+.skill-value-label {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.skill-value-score {
+  font-size: 1rem;
+}
+
+.skill-value-score.is-elite {
+  color: #7fe0a2;
 }
 
 .tag {
@@ -387,10 +499,29 @@ h2 {
   color: var(--text);
 }
 
+.action-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
 .score-strip,
 .metric-grid,
 .set-stats-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.compact-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .score-strip {
@@ -463,6 +594,60 @@ h2 {
   color: var(--muted);
 }
 
+.radar-shell {
+  display: grid;
+  gap: 12px;
+}
+
+.radar-chart {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.radar-ring,
+.radar-axis {
+  fill: none;
+  stroke: rgba(237, 247, 241, 0.16);
+  stroke-width: 1;
+}
+
+.radar-shape {
+  fill: rgba(223, 255, 82, 0.18);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.radar-dot {
+  fill: var(--accent);
+}
+
+.radar-label {
+  fill: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.radar-legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+}
+
+.radar-legend-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.radar-legend-row span {
+  color: var(--muted);
+}
+
 .game-disclosure,
 .point-row {
   border: 1px solid var(--line);
@@ -478,6 +663,47 @@ h2 {
   gap: 12px;
   padding: 16px;
   cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-grid,
+  .content-split,
+  .spotlight-lower-grid,
+  .scoreboard,
+  .score-strip,
+  .metric-grid,
+  .set-stats-grid,
+  .rally-band-panel,
+  .radar-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-grid,
+  .stats-strip-grid,
+  .form-grid,
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .secondary-skill-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell,
+  .panel,
+  .hero-panel {
+    padding: 18px;
+  }
+
+  .hero-panel,
+  .compact-grid,
+  .stats-strip-grid,
+  .form-grid,
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .game-disclosure summary::-webkit-details-marker,
@@ -510,15 +736,178 @@ h2 {
   background: rgba(255, 255, 255, 0.04);
 }
 
+.subsection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.recent-row {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.recent-row strong,
+.recent-row span {
+  display: block;
+}
+
+.recent-row span {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.distribution-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.distribution-panel {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.report-preview-card {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.report-preview-scoreboard {
+  pointer-events: none;
+}
+
+.report-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  padding: 28px;
+  background: rgba(2, 8, 6, 0.74);
+  backdrop-filter: blur(12px);
+}
+
+.report-modal {
+  max-width: 1280px;
+  width: 100%;
+  height: min(90vh, 980px);
+  margin: auto;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 22px;
+  background: linear-gradient(180deg, rgba(15, 36, 28, 0.98), rgba(7, 18, 14, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.report-modal-header,
+.report-modal-actions,
+.report-tab-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.report-modal-header,
+.report-modal-actions {
+  align-items: center;
+}
+
+.report-modal-body {
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.stats-matrix-panel {
+  gap: 16px;
+}
+
+.stats-matrix {
+  display: grid;
+  gap: 8px;
+}
+
+.stats-matrix-header,
+.stats-matrix-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(160px, 0.8fr) minmax(120px, 1fr);
+  align-items: center;
+}
+
+.stats-matrix-header {
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.stats-matrix-row {
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.stats-matrix-row span {
+  color: var(--muted);
+  text-align: center;
+}
+
+.stats-matrix-row strong:last-child {
+  text-align: right;
+}
+
+.data-bar-row {
+  display: grid;
+  gap: 8px;
+}
+
+.data-bar-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.data-bar-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.data-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(223, 255, 82, 0.35), var(--accent));
+}
+
 @media (max-width: 1200px) {
   .dashboard-grid,
   .content-split,
-  .spotlight-grid,
+  .spotlight-lower-grid,
   .scoreboard,
   .score-strip,
   .metric-grid,
+  .compact-grid,
   .rally-band-panel,
-  .set-stats-grid {
+  .set-stats-grid,
+  .distribution-grid,
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
@@ -539,7 +928,29 @@ h2 {
   }
 
   .surface-toggle,
-  .tag-row {
+  .tag-row,
+  .report-modal-actions,
+  .report-tab-strip {
     flex-wrap: wrap;
+  }
+
+  .report-modal-backdrop {
+    padding: 10px;
+  }
+
+  .report-modal {
+    height: 95vh;
+    padding: 16px;
+  }
+
+  .stats-matrix-header,
+  .stats-matrix-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .stats-matrix-row span,
+  .stats-matrix-row strong:last-child {
+    text-align: left;
   }
 }

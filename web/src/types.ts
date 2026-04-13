@@ -178,6 +178,21 @@ export interface SetEntry {
   gamesTimeline: GameEntry[];
 }
 
+export interface PatternSummaryPlayer {
+  serveDirections?: Record<string, number>;
+  serveSpins?: Record<string, number>;
+  targetedWings?: Record<string, number>;
+  rallySpins?: Record<string, number>;
+  winnersByHand?: Record<string, number>;
+  forcedErrorsByHand?: Record<string, number>;
+  unforcedErrorsByHand?: Record<string, number>;
+}
+
+export interface PatternSummary {
+  rallyBands?: Record<string, number>;
+  players?: Record<string, PatternSummaryPlayer>;
+}
+
 export interface MatchReport {
   meta: {
     players: [string, string];
@@ -191,7 +206,7 @@ export interface MatchReport {
   };
   players: Record<string, PlayerSummary>;
   matchStats: Record<string, MatchStats>;
-  patternSummary: Record<string, unknown>;
+  patternSummary: PatternSummary;
   sets: SetEntry[];
 }
 
@@ -217,4 +232,11 @@ export interface BatchSummary {
   winnerToErrorRatio: Record<string, number>;
   commonScorelines: Record<string, number>;
   rallyBandDistribution: Record<string, number>;
+}
+
+export interface RecentSimulation {
+  id: string;
+  kind: "match" | "batch";
+  label: string;
+  meta: string;
 }

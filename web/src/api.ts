@@ -20,7 +20,17 @@ async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export const api = {
-  players: async () => fetchJson<{ players: PlayerSummary[] }>("/players"),
+  players: async (params?: { q?: string; surface?: Surface }) => {
+    const query = new URLSearchParams();
+    if (params?.q?.trim()) {
+      query.set("q", params.q.trim());
+    }
+    if (params?.surface) {
+      query.set("surface", params.surface);
+    }
+    const suffix = query.size ? `?${query.toString()}` : "";
+    return fetchJson<{ players: PlayerSummary[] }>(`/players${suffix}`);
+  },
   player: async (playerId: string) => fetchJson<PlayerDetail>(`/players/${playerId}`),
   compare: async (playerOne: string, playerTwo: string, surface: Surface) =>
     fetchJson<ComparePayload>(
@@ -32,6 +42,7 @@ export const api = {
     surface: Surface;
     bestOfSets: number;
     seed: number;
+    initialServer?: string;
   }) =>
     fetchJson<MatchReport>("/simulate/match", {
       method: "POST",
@@ -44,6 +55,7 @@ export const api = {
     bestOfSets: number;
     seed: number;
     iterations: number;
+    initialServer?: string;
   }) =>
     fetchJson<BatchSummary>("/simulate/batch", {
       method: "POST",
