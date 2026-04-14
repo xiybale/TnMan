@@ -49,17 +49,18 @@ Pressure is tracked as a score-state index on a 0-100 scale.
 
 Pressure rises in these contexts:
 
-- `30-30` is elevated pressure,
-- `30-40` and other one-point-from-game states are high pressure,
+- any service point where losing the point would create break-point pressure on the next ball, such as `0-30`, `15-30`, and `30-30`,
+- current break points and game points against serve such as `30-40`, `15-40`, `0-40`, and `Ad receiver`,
 - deuce and advantage points,
-- break points,
 - set points,
 - match points,
 - tiebreaks.
 
 Set point and match point are treated as maximum pressure (`100/100`).
 
-`pressure_handling` is the primary clutch skill. It reduces execution penalties on high-pressure points across serves, returns, and rallies. `composure` still matters, but now acts as a secondary stabilizer rather than the only pressure-control attribute.
+Pressure is not purely score-state based inside the engine. Serve pressure is further increased by return quality and anticipation on the other side, with the largest adjustment coming on second serves against strong returners.
+
+`pressure_handling` is the primary clutch skill. It reduces execution penalties on high-pressure points across serves, returns, and rallies. `composure` still matters, but now acts as a secondary stabilizer. Truly elite players with both high `pressure_handling` and high `composure` can convert part of that pressure penalty into a small clutch bonus, which allows them to perform slightly better than their routine baseline on the biggest points.
 
 ## Fatigue Model
 

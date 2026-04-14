@@ -13,6 +13,7 @@ if str(SRC) not in sys.path:
 
 from tennis_pro_manager.models import Handedness, MatchConfig, PlayerProfile, SpinType, Surface
 from tennis_pro_manager.roster import load_roster
+from tennis_pro_manager.scoring import ScoreTracker
 from tennis_pro_manager.simulator import SURFACE_TUNING, MatchSimulator
 
 
@@ -216,6 +217,71 @@ class SimulatorTests(unittest.TestCase):
         )
 
         self.assertGreater(high_probability, low_probability)
+
+    def test_server_pressure_rises_against_elite_returner_on_second_serve(self) -> None:
+        server = self.roster["hubert-hurkacz"]
+        elite_returner = self.roster["novak-djokovic"]
+        weak_returner = self._clone_player(
+            "novak-djokovic",
+            "weak-return-test",
+            name="Weak Return Test",
+            skills={"return_quality": 45, "anticipation": 45},
+        )
+        point_state = ScoreTracker(
+            server.player_id,
+            elite_returner.player_id,
+            best_of_sets=3,
+            initial_server=server.player_id,
+        ).snapshot(1)
+
+        first_serve_pressure = self.simulator._serve_pressure(  # noqa: SLF001
+            point_state,
+            server,
+            elite_returner,
+            serve_number=1,
+        )
+        second_serve_pressure = self.simulator._serve_pressure(  # noqa: SLF001
+            point_state,
+            server,
+            elite_returner,
+            serve_number=2,
+        )
+        weak_second_serve_pressure = self.simulator._serve_pressure(  # noqa: SLF001
+            point_state,
+            server,
+            weak_returner,
+            serve_number=2,
+        )
+
+        self.assertGreater(second_serve_pressure, first_serve_pressure)
+        self.assertGreater(second_serve_pressure, weak_second_serve_pressure)
+
+    def test_ultra_elite_player_can_gain_small_clutch_bonus(self) -> None:
+        ultra_clutch = self._clone_player(
+            "novak-djokovic",
+            "ultra-clutch-test",
+            name="Ultra Clutch Test",
+            skills={"pressure_handling": 99, "composure": 99},
+        )
+
+        routine_probability = self.simulator._first_serve_in_probability(  # noqa: SLF001
+            ultra_clutch,
+            Surface.HARD,
+            fatigue=0.0,
+            pressure=0.0,
+            tuning=SURFACE_TUNING[Surface.HARD],
+            serve_spin=SpinType.FLAT,
+        )
+        maximum_pressure_probability = self.simulator._first_serve_in_probability(  # noqa: SLF001
+            ultra_clutch,
+            Surface.HARD,
+            fatigue=0.0,
+            pressure=1.0,
+            tuning=SURFACE_TUNING[Surface.HARD],
+            serve_spin=SpinType.FLAT,
+        )
+
+        self.assertGreater(maximum_pressure_probability, routine_probability)
 
 
 if __name__ == "__main__":

@@ -210,25 +210,66 @@ class ScoreTracker:
             return 100
 
         pressure = 18
-        if break_point_for is not None:
-            pressure = max(pressure, 88)
-
         if is_tiebreak:
             total_points = server_points + receiver_points
             pressure = max(pressure, min(90, 46 + total_points * 4))
             if abs(server_points - receiver_points) <= 1:
                 pressure = min(95, pressure + 6)
 
-        if is_deuce:
-            pressure = max(pressure, 62)
-        elif server_display == "30" and receiver_display == "30":
-            pressure = max(pressure, 55)
-        elif {server_display, receiver_display} == {"30", "40"}:
-            pressure = max(pressure, 78)
-        elif {server_display, receiver_display} == {"40", "15"}:
-            pressure = max(pressure, 42)
+        pressure = max(
+            pressure,
+            self._server_risk_pressure(
+                server_points=server_points,
+                receiver_points=receiver_points,
+                is_deuce=is_deuce,
+            ),
+        )
+        if break_point_for is not None:
+            pressure = max(
+                pressure,
+                self._break_point_pressure(
+                    server_points=server_points,
+                    receiver_points=receiver_points,
+                ),
+            )
 
         return pressure
+
+    def _server_risk_pressure(
+        self,
+        *,
+        server_points: int,
+        receiver_points: int,
+        is_deuce: bool,
+    ) -> int:
+        if is_deuce:
+            return 64
+
+        # Losing the current point would create break-point pressure on the next ball.
+        if receiver_points == 2 and server_points <= 2:
+            return {
+                0: 50,  # 0-30
+                1: 54,  # 15-30
+                2: 58,  # 30-30
+            }[server_points]
+
+        return 18
+
+    def _break_point_pressure(
+        self,
+        *,
+        server_points: int,
+        receiver_points: int,
+    ) -> int:
+        if server_points >= 3 and receiver_points > server_points:
+            return 90  # Ad receiver
+        if receiver_points >= 3 and server_points < 3:
+            return {
+                0: 94,  # 0-40
+                1: 91,  # 15-40
+                2: 88,  # 30-40
+            }[server_points]
+        return 88
 
     def _pressure_label(self, pressure_index: int) -> str:
         if pressure_index >= 100:

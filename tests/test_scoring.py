@@ -14,16 +14,26 @@ from tennis_pro_manager.scoring import ScoreTracker
 
 
 class ScoreTrackerTests(unittest.TestCase):
-    def test_pressure_index_ladder_hits_expected_score_states(self) -> None:
+    def test_pressure_index_ladder_tracks_server_risk_before_break_point(self) -> None:
         tracker = ScoreTracker("a", "b", best_of_sets=3, initial_server="a")
 
-        tracker.point_won_by("a")
-        tracker.point_won_by("a")
         tracker.point_won_by("b")
         tracker.point_won_by("b")
+        zero_thirty = tracker.snapshot(3)
+        self.assertEqual(zero_thirty.point_score, "0-30")
+        self.assertEqual(zero_thirty.pressure_index, 50)
+        self.assertEqual(zero_thirty.pressure_label, "elevated")
+
+        tracker.point_won_by("a")
+        fifteen_thirty = tracker.snapshot(4)
+        self.assertEqual(fifteen_thirty.point_score, "15-30")
+        self.assertEqual(fifteen_thirty.pressure_index, 54)
+        self.assertEqual(fifteen_thirty.pressure_label, "elevated")
+
+        tracker.point_won_by("a")
         thirty_all = tracker.snapshot(5)
         self.assertEqual(thirty_all.point_score, "30-30")
-        self.assertEqual(thirty_all.pressure_index, 55)
+        self.assertEqual(thirty_all.pressure_index, 58)
         self.assertEqual(thirty_all.pressure_label, "elevated")
 
         tracker.point_won_by("b")
@@ -31,6 +41,17 @@ class ScoreTrackerTests(unittest.TestCase):
         self.assertEqual(break_point.point_score, "30-40")
         self.assertEqual(break_point.break_point_for, "b")
         self.assertEqual(break_point.pressure_index, 88)
+        self.assertEqual(break_point.pressure_label, "high")
+
+    def test_triple_break_point_is_higher_than_single_break_point(self) -> None:
+        tracker = ScoreTracker("a", "b", best_of_sets=3, initial_server="a")
+        tracker.current_points = {"a": 0, "b": 3}
+
+        break_point = tracker.snapshot(1)
+
+        self.assertEqual(break_point.point_score, "0-40")
+        self.assertEqual(break_point.break_point_for, "b")
+        self.assertEqual(break_point.pressure_index, 94)
         self.assertEqual(break_point.pressure_label, "high")
 
     def test_set_point_and_match_point_are_maximum_pressure(self) -> None:

@@ -359,18 +359,18 @@ class MatchSimulator:
 
         server_fatigue = self._fatigue(stats[server.player_id], server)
         receiver_fatigue = self._fatigue(stats[receiver.player_id], receiver)
-        server_pressure = self._pressure(point_state, server.player_id)
         receiver_pressure = self._pressure(point_state, receiver.player_id)
 
         first_direction = self._choose_serve_direction(server, receiver, rng, serve_number=1)
         first_spin = self._choose_serve_spin(server, first_direction, serve_number=1, rng=rng)
+        first_serve_pressure = self._serve_pressure(point_state, server, receiver, serve_number=1)
         stats[server.player_id].first_serve_attempts += 1
         stats[server.player_id].total_shots += 1
         first_serve_in = self._first_serve_in_probability(
             server,
             surface,
             server_fatigue,
-            server_pressure,
+            first_serve_pressure,
             tuning,
             first_spin,
         )
@@ -390,7 +390,7 @@ class MatchSimulator:
                     spin_type=first_spin,
                     serve_number=1,
                     serve_direction=first_direction,
-                    pressure=server_pressure,
+                    pressure=first_serve_pressure,
                     fatigue=server_fatigue,
                     detail="First serve missed",
                 )
@@ -398,13 +398,14 @@ class MatchSimulator:
             shot_number += 1
             second_direction = self._choose_serve_direction(server, receiver, rng, serve_number=2)
             second_spin = self._choose_serve_spin(server, second_direction, serve_number=2, rng=rng)
+            second_serve_pressure = self._serve_pressure(point_state, server, receiver, serve_number=2)
             stats[server.player_id].second_serve_attempts += 1
             stats[server.player_id].total_shots += 1
             second_serve_in = self._second_serve_in_probability(
                 server,
                 surface,
                 server_fatigue,
-                server_pressure,
+                second_serve_pressure,
                 tuning,
                 second_spin,
             )
@@ -425,7 +426,7 @@ class MatchSimulator:
                         spin_type=second_spin,
                         serve_number=2,
                         serve_direction=second_direction,
-                        pressure=server_pressure,
+                        pressure=second_serve_pressure,
                         fatigue=server_fatigue,
                         detail="Second serve missed",
                     )
@@ -435,6 +436,7 @@ class MatchSimulator:
             stats[server.player_id].second_serves_in += 1
             serve_number = 2
             serve_direction = second_direction
+            serve_pressure = second_serve_pressure
             serve_threat = self._serve_threat(
                 server,
                 receiver,
@@ -450,6 +452,7 @@ class MatchSimulator:
             stats[server.player_id].first_serves_in += 1
             serve_number = 1
             serve_direction = first_direction
+            serve_pressure = first_serve_pressure
             serve_threat = self._serve_threat(
                 server,
                 receiver,
@@ -468,7 +471,7 @@ class MatchSimulator:
             server,
             serve_threat,
             serve_number,
-            server_pressure,
+            serve_pressure,
             tuning,
             serve_spin,
             serve_direction,
@@ -498,7 +501,7 @@ class MatchSimulator:
                     spin_type=serve_spin,
                     serve_number=serve_number,
                     serve_direction=serve_direction,
-                    pressure=server_pressure,
+                    pressure=serve_pressure,
                     fatigue=server_fatigue,
                     detail="Unreturned serve",
                 )
@@ -522,7 +525,7 @@ class MatchSimulator:
                     spin_type=serve_spin,
                     serve_number=serve_number,
                     serve_direction=serve_direction,
-                    pressure=server_pressure,
+                    pressure=serve_pressure,
                     fatigue=server_fatigue,
                     detail="Serve forces a direct point",
                 )
@@ -543,7 +546,7 @@ class MatchSimulator:
                 spin_type=serve_spin,
                 serve_number=serve_number,
                 serve_direction=serve_direction,
-                pressure=server_pressure,
+                pressure=serve_pressure,
                 fatigue=server_fatigue,
                 detail="Serve lands in play",
             )
@@ -780,9 +783,9 @@ class MatchSimulator:
 
         if point_state.break_point_for is not None:
             if player_id == point_state.server_id:
-                pressure += 0.06
+                pressure += 0.08
             elif point_state.break_point_for == player_id:
-                pressure += 0.02
+                pressure += 0.01
 
         if point_state.set_point_for is not None:
             if point_state.set_point_for == player_id:
@@ -798,8 +801,54 @@ class MatchSimulator:
 
         return _clamp(pressure, 0.0, 1.0)
 
+    def _serve_pressure(
+        self,
+        point_state: PointState,
+        server: PlayerProfile,
+        receiver: PlayerProfile,
+        *,
+        serve_number: int,
+    ) -> float:
+        pressure = self._pressure(point_state, server.player_id)
+        return_profile = (
+            0.72 * _n(receiver.skills.return_quality)
+            + 0.28 * _n(receiver.skills.anticipation)
+        )
+        return_threat = max(0.0, return_profile - 0.55)
+
+        if serve_number == 1:
+            pressure += return_threat * 0.10
+        else:
+            second_serve_stability = (
+                0.72 * _n(server.skills.second_serve_reliability)
+                + 0.28 * _n(server.skills.serve_accuracy)
+            )
+            second_serve_exposure = max(0.0, 0.72 - second_serve_stability)
+            pressure += 0.04 + return_threat * 0.20 + second_serve_exposure * 0.12
+
+        return _clamp(pressure, 0.0, 1.0)
+
     def _pressure_resilience(self, player: PlayerProfile) -> float:
         return _n(player.skills.pressure_handling) * 0.68 + _n(player.skills.composure) * 0.32
+
+    def _clutch_bonus_rate(
+        self,
+        player: PlayerProfile,
+        pressure: float,
+        upside_cap: float,
+    ) -> float:
+        handling = _n(player.skills.pressure_handling)
+        composure = _n(player.skills.composure)
+        resilience = self._pressure_resilience(player)
+        if pressure < 0.60 or handling < 0.88 or composure < 0.84:
+            return 0.0
+
+        pressure_factor = _clamp((pressure - 0.60) / 0.40, 0.0, 1.0)
+        handling_factor = _clamp((handling - 0.88) / 0.12, 0.0, 1.0)
+        composure_factor = _clamp((composure - 0.84) / 0.16, 0.0, 1.0)
+        resilience_factor = _clamp((resilience - 0.86) / 0.14, 0.0, 1.0)
+        clutch_factor = 0.50 * handling_factor + 0.30 * composure_factor + 0.20 * resilience_factor
+        return upside_cap * pressure_factor * clutch_factor
 
     def _pressure_penalty_rate(
         self,
@@ -810,7 +859,13 @@ class MatchSimulator:
     ) -> float:
         resilience = self._pressure_resilience(player)
         adjusted_penalty = base_penalty * (1.0 - 0.72 * resilience)
-        return pressure * max(minimum_penalty, adjusted_penalty)
+        penalty = pressure * max(minimum_penalty, adjusted_penalty)
+        clutch_bonus = self._clutch_bonus_rate(
+            player,
+            pressure,
+            upside_cap=min(base_penalty * 0.50, 0.04),
+        )
+        return penalty - clutch_bonus
 
     def _fatigue(self, stats: PlayerMatchStats, player: PlayerProfile) -> float:
         endurance = (
